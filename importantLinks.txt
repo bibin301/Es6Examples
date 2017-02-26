@@ -217,4 +217,9 @@ http://bit.ly/153OvLS(alert-model)
 http://bit.ly/17vHLWX(resetting the user info form)
 
 
+======sto angular event system=====
+https://toddmotto.com/all-about-angulars-emit-broadcast-on-publish-subscribing/
+===eno angular event system====
+
+
 
