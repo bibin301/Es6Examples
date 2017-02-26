@@ -1,0 +1,131 @@
+git usage:
+=========
+
+->svn (old type)
+->git
+
+
+commends
+
+
+git clone (link)
+
+gir add -a
+git commit -m "comment message"
+
+git pull origin branchname
+
+
+git push origin branchname
+
+git branch branchname
+
+
+git checkup branchname
+
+
+
+->create repository
+ 
+
+
+-------------live command prompt----
+
+set name and password
+
+
+git config --global user.name "username"
+git config --global user.email email id
+
+
+git config --list(to see git config)
+
+git status  ->to see the status
+
+
+git add -A (to add all files)
+
+
+
+
+before doing push take pull
+
+
+git pull origin master
+
+git push origin master
+
+
+
+
+
+
+
+=======branch==
+
+
+release branch
+master ,development
+
+
+
+git branch development (created )-> to create git branch
+
+*master ->current branch
+
+
+git branch -> To see current branch
+
+
+
+
+git checkout development ->to change the branch name
+
+
+
+git branch
+
+
+
+
+
+
+master to development merge
+============================
+
+
+
+git checkout master -> to see  current
+
+
+
+git merge development  -> merge code from source to destination
+
+
+
+
+
+
+
+
+
+
+git branch -to see current branch
+
+
+
+url:
+========
+
+
+https://github.com/michaelbromley/angular-es6 (angular)
+http://www.michaelbromley.co.uk/blog/350/exploring-es6-classes-in-angularjs-1-x(angular-es6)
+https://github.com/lukehoban/es6features/blob/master/README.md( github es6 features)
+http://jsfiddle.net/2ZzZB/56/ (li with ng repeat pagination)
+<!- pdf streeming->
+https://stackoverflow.com/questions/24535799/pdf-js-and-viewer-js-pass-a-stream-or-blob-to-the-viewer
+http://www.angulartypescript.com/ (angulartypescript)
+http://jsfiddle.net/7Utn7/(array
+
+
+http://stackoverflow.com/questions/31637885/how-in-one-controller-get-value-from-another-controller(controller communication) 
