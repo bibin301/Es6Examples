@@ -1,0 +1,121 @@
+http://10.1.3.15
+http://192.168.101.254/
+http://localhost/Cartwheel/api/helpdesk/categories
+http://www.sitepoint.com/understanding-angulars-apply-digest/ (event handling)
+    http://oitozero.github.io/ngSweetAlert/#/home  (sweet alert)
+http://www.aspdotnet-suresh.com/2015/06/angularjs-get-previous-next-day-month-year-date-time-example.html  (month,week,day)
+//table collabse
+http://plnkr.co/edit/yYq1dt?p=preview
+//table collabse
+http://www.shanidkv.com/blog/angularjs-pagination (refer)
+
+http://jsfiddle.net/DrQ77/- get dropdown value based on selection
+
+<test date (from system)>
+http://jsfiddle.net/2YkeK/
+http://jsfiddle.net/taditdash/zerw2j2g/ (get lastyear)
+</test>
+http://weeknumber.net/how-to/javascript (calculating week number and year and month)
+<study>
+https://github.com/angular/angular.js/wiki/JSFiddle-Examples
+https://market.ionic.io/plugins/ionicdatepicker
+http://plnkr.co/edit/rNI6xkgP5vo0WBVFQo1X?p=preview (more option)
+Javascript Form Select Change Options Tutorial Dynamic List
+<study>
+---code school----
+http://campus.codeschool.com/courses/shaping-up-with-angular-js/level/4/section/1/video/1
+----------------
+***accordin----
+http://plnkr.co/edit/nJ654pvE1itnGDQGp2rk?p=preview
+***end---
+<!--check must doubt-->
+http://plnkr.co/edit/rNI6xkgP5vo0WBVFQo1X?p=preview (limit)
+http://plnkr.co/edit/tgUvtd1IVWQDw8UH3iPb?p=preview
+<!--check must doubt-->
+<!-- <div class="error" ng-show="userForm.Departmentname.$error.pattern">You can't start your Categories from digts</div>[A-Za-z_][A-Za-z_0-9]* -->
+2.https://www.ludu.co/lesson/how-to-use-sweetalert
+http://blog.revolunet.com/blog/2014/02/14/angularjs-services-inheritance/ (our follw code)
+  <!-- ng-pattern="/^[A-Za-z0-9._%+-]+@domain.com$/" -->
+
+http://code.realcrowd.com/on-the-bleeding-edge-advanced-angularjs-form-validation/ (advanced form validation)
+http://codepen.io/mikeair/pen/Kfyin (vertical nav bar)
+http://www.html5xcss3.com/p/vertical-css3-menus-tutorials.html (Design)
+http://codepen.io/martinwolf/pen/tDHEc (dropdown content select)
+http://www.techstrikers.com/AngularJS/angularjs-built-in-directives.php (read must)
+***(http://plnkr.co/edit/wSflQs9bXYvihL5jUrvc?p=preview) test
+http://plnkr.co/edit/D48xcomnXdClccMnl5Jj?p=preview (grid model)
+http://brianhann.com/create-a-modal-row-editor-for-ui-grid-in-minutes/(grid-model)
+http://samu.github.io/angular-table/examples/examples.html(table)
+http://lorenzofox3.github.io/smart-table-website/ (smart table)
+http://www.angulargrid.com/angular-grid-pagination/index.php
+http://plnkr.co/edit/D48xcomnXdClccMnl5Jj?p=preview
+http://haroldrv.com/2015/02/understanding-angularjs-q-service-and-promises/ (good)
+
+http://stackoverflow.com/questions/28056900/angularjs-ngrepeat-refresh-with-post?rq=1 (check)
+http://stackoverflow.com/questions/24996746/how-to-refresh-table-data-after-insert-or-update?rq=1 (check1-post****)
+https://scotch.io/tutorials/angularjs-form-validation
+http://jsfiddle.net/scottux/f7MzW/(@@****)
+http://jsfiddle.net/scottux/7cMV3/ (phone number)
+http://www.regular-expressions.info/charclass.html (validation -pattern **)
+****
+****
+http://angularscript.com ----
+****
+http://jsfiddle.net/adamjld/a8ybubcx/1/ (option select without nested array)
+http://jsfiddle.net/annavester/Zd6uX/()
+****
+http://www.brentmckendrick.com/code/xtform/ (tool tip)
+http://192.168.101.254/dynUserLogin.html?loginDone=1
+http://plnkr.co/edit/8v4qin?p=preview (language selection)
+
+http://plnkr.co/edit/PW1RvM?p=preview (drop select)
+http://plnkr.co/edit/L3YYgq7TEM2mBG9s9we1?p=preview
+
+http://plnkr.co/edit/ZAaObu?p=preview (tooltip validation)
+
+http://plnkr.co/edit/rjIIkX?p=preview (form validation on submit)
+http://plnkr.co/edit/0ED8x3?p=preview (validation on submit)
+
+http://stackoverflow.com/questions/14301524/in-angular-how-to-redirect-with-location-path-as-http-post-success-callback?rq=1 (impprtant-post)
+
+https://scotch.io/tutorials/how-to-use-ngshow-and-nghide (ng-class)
+
+http://www.code-sample.com/2014/12/ng-grid-edit-delete-row-in-angularjs.html (ng-grid edit)
+
+http://www.mkyong.com/javascript/how-to-access-json-object-in-javascript/ (imp)
+
+http://stackoverflow.com/questions/20305012/angularjs-ng-if-with-multiple-conditions (ng-if -condition -checkbox ****)
+http://stackoverflow.com/questions/28298607/ng-if-with-multiple-conditions-inside-ng-repeat-not-working-as-expected
+
+http://jsfiddle.net/HB7LU/18537/  (1.treestructure with difference json title ***)
+http://stackoverflow.com/questions/26571175/sub-menu-expanded-collapsed-tree-in-angularjs (2)
+http://findicons.com/icon/471506/administrator_lock_open?id=478474 (icons)
+https://thenounproject.com/term/meeting/ (icons2)
+
+http://plnkr.co/edit/L5ngh18qUMFlveVsfHlR?p=preview (nested array tree structure)
+
+---calendr--------
+http://www.hunlock.com/blogs/Javascript_Dates-The_Complete_Reference  (javascript)****
+https://mattlewis.me/angular-bootstrap-calendar/#/event-editor
+http://www.daterangepicker.com/ (jquery)
+http://plnkr.co/edit/7RMrNOGrdVVIuVFDM49T?p=preview
+http://plnkr.co/edit/T9eISAXlWtT9JdL6KvZp?p=preview (dual calender)
+http://codepen.io/NilsWe/pen/FemfK (vertical timeline)
+http://chrisharrington.github.io/demos/calendar.html
+http://plnkr.co/edit/Xj1sSNKXX0IpZxJSvS4l?p=preview
+https://www.codementor.io/angularjs/tutorial/angularjs-calendar-directives-less-cess-moment-font-awesome
+http://angular-js.in/turn-calendar/
+
+http://www.dhtmlx.com/blog/creating-event-calendar-with-dhtmlxscheduler-and-angularjs/
+
+
+http://plnkr.co/edit/W5pb1boMLOHZFnWkMU8o?p=preview
+
+http://stackoverflow.com/questions/20231250/angularui-datepicker-dynamic-date-disabling
+
+https://github.com/twinssbc/AngularJS-ResponsiveCalendar
+
+https://mattlewis.me/angular-bootstrap-calendar/
+
+http://jsfiddle.net/u93g87qc/2/
+---calender-------
