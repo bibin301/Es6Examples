@@ -1,0 +1,362 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fun",
+				"function"
+			],
+			[
+				"d",
+				"depart"
+			],
+			[
+				"i",
+				"inner"
+			],
+			[
+				"p",
+				"playersNickName"
+			],
+			[
+				"f",
+				"findNickName"
+			],
+			[
+				"temp",
+				"templates"
+			],
+			[
+				"es",
+				"es6"
+			],
+			[
+				"u",
+				"uviNickName"
+			],
+			[
+				"c",
+				"cricketerName"
+			],
+			[
+				"n",
+				"num2"
+			],
+			[
+				"nu",
+				"num1"
+			],
+			[
+				"num",
+				"num2"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"s",
+				"sayHello"
+			],
+			[
+				"be",
+				"bestCricketer"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"ma",
+				"margin-bottom"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"bor",
+				"border-color"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"st",
+				"style	Tag"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"address",
+				"addressForm"
+			],
+			[
+				"bo",
+				"border-bottom"
+			],
+			[
+				"border",
+				"border-top"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"wid",
+				"width"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/BIBIN RAJ/Desktop/angular2/package.json",
+		"/C/Users/BIBIN RAJ/AppData/Roaming/Sublime Text 3/Packages/User/node.sublime-build",
+		"/D/work_app/htdocs/boostApp/index.html",
+		"/D/work_app/htdocs/boostApp/app/app.js",
+		"/D/work_app/htdocs/boostApp/vendor/angularboostrap.js",
+		"/D/work_app/htdocs/interview2/js/components/common/app.js",
+		"/D/work_app/htdocs/interview2/app1.html",
+		"/D/work_app/htdocs/interview2/js/components/common/app.route.js",
+		"/D/work_app/htdocs/interview2/index.html",
+		"/D/work_app/htdocs/interview2/js/components/addressForm/addressService.js",
+		"/D/work_app/htdocs/interview2/js/components/login/login.service.js",
+		"/D/work_app/htdocs/interview2/js/components/dashboard/dashboard.html",
+		"/D/work_app/htdocs/interview2/js/components/addressForm/addressController.js",
+		"/D/work_app/htdocs/interview2/js/components/addressForm/datepicker.js",
+		"/D/work_app/htdocs/interview2/js/components/addressForm/address.html",
+		"/D/work_app/htdocs/interview2/js/components/login/login.controller.js",
+		"/D/work_app/htdocs/interview2/js/components/dashboard/dashCtl.js",
+		"/D/work_app/htdocs/interview2/js/components/list/listService.js",
+		"/D/work_app/htdocs/interview2/js/components/login/login.html",
+		"/D/work_app/htdocs/interview2/js/components/list/list.html",
+		"/D/work_app/htdocs/interview2/js/components/list/list.ctl.js",
+		"/D/work_app/htdocs/interview2/js/components/list/data.json",
+		"/D/work_app/htdocs/interview2/vender/angular-bootstrap/ui-bootstrap-tpls.js",
+		"/D/work_app/htdocs/interview2/dashCtrl.js",
+		"/D/work_app/htdocs/interview2/js/components/common/appCtl.js",
+		"/D/work/public1/css/style.css",
+		"/D/work/public1/css/style-w3.css",
+		"/D/work/public1/css/nav.css",
+		"/D/work/public1/js/shared/login/login.controller1.js",
+		"/D/work/public1/js/shared/login/login.modal.tpl.html",
+		"/D/work/public1/index.html",
+		"/D/work/public1/js/shared/cartwheel.debug.js",
+		"/D/work/public1/js/shared/cartwheel.config.js",
+		"/D/work/boostApp/index.html",
+		"/D/work/boostApp/vendor/angular.js",
+		"/D/work/boostApp/vendor/angularboostrap.js",
+		"/D/work/boostApp/app/app.js",
+		"/D/angular2-project/project2/app/app.component.js",
+		"/D/angular2-project/project1/tsConfig.json",
+		"/D/angular2-project/project1/typings.json",
+		"/D/angular2-project/project1/packages.json",
+		"/C/Users/BIBIN RAJ/Desktop/Interview/compontes/home.html",
+		"/C/Users/BIBIN RAJ/Desktop/Interview/compontes/ctl.js",
+		"/C/Users/BIBIN RAJ/Desktop/Interview/compontes/dash.html",
+		"/C/Users/BIBIN RAJ/Desktop/Interview/index.html",
+		"/C/Users/BIBIN RAJ/Desktop/Interview/compontes/route.js",
+		"/C/Users/BIBIN RAJ/Desktop/sampleProject/index.html",
+		"/C/Users/BIBIN RAJ/Desktop/sampleProject/compontes/ctl.js",
+		"/C/Users/BIBIN RAJ/Desktop/sampleProject/compontes/home.html",
+		"/C/Users/BIBIN RAJ/Desktop/sampleProject/compontes/dash.html",
+		"/C/Users/BIBIN RAJ/Desktop/sampleProject/compontes/app.js",
+		"/C/Users/BIBIN RAJ/Desktop/sampleProject/compontes/route.js",
+		"/C/Users/BIBIN RAJ/Desktop/sampleProject/login.html",
+		"/D/angularjsvideo/AngularJS-BootStrapCRUD/AngularJS-BootStrapCRUD/index.html",
+		"/D/ng-grid/ui-grid.info-gh-pages/index.html",
+		"/D/ng-grid/ui-grid.info-gh-pages/app.js",
+		"/D/ng-grid/ui-grid.info-gh-pages/info.ini",
+		"/D/ng-grid/ui-grid.info-gh-pages/README.md",
+		"/D/work/angularExample/example/bibin.Html",
+		"/D/work/angularExample/example/test.html",
+		"/D/work/angularExample/example/factroy.Html",
+		"/D/work/angularExample/example/js/app/app.js",
+		"/D/work/angularExample/example/js/app/countriesFactory.js",
+		"/D/work/angularExample/example/js/app/countryControllers.js",
+		"/D/work/angularExample/example/js/app/countryDirective.js",
+		"/D/work/angularExample/example/country.html",
+		"/D/work/angularExample/example/country-detail.html",
+		"/D/work/angularExample/example/country-list.html",
+		"/D/work/angularExample/example/countries.json",
+		"/D/work/angularExample/example/country_1.json",
+		"/D/work/angularExample/example/country_2.json",
+		"/D/work/angularExample/example/country_3.json",
+		"/D/work/angularExample/example/hello.html",
+		"/D/angularjsvideo/angular-1.4.0/docs/examples/example-$route-service/protractor.js",
+		"/D/sportsplay-cvs/prediction/Rankings.php",
+		"/D/fl/floradelic/checkout.php",
+		"/C/Users/BIBIN RAJ/Desktop/sportsplay/fixtures_bar.php",
+		"/D/fl/floradelic/Transaction.php",
+		"/C/Users/BIBIN RAJ/Desktop/sportsplay/index.php",
+		"/C/Users/BIBIN RAJ/Desktop/sportsplay/css/home.css",
+		"/D/fl/flo_front/floradelic/Transaction.php",
+		"/H/Apache2.2/htdocs/motorola/index.html",
+		"/H/Apache2.2/htdocs/motorola/css/moto.css"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"secondDropdown",
+			"collapseSidebar",
+			"save-action",
+			".empName",
+			"cartLogin",
+			"fa-indent",
+			"fa-indentfa-indentfa-indent",
+			"menu-collapsed",
+			"toggle-btn",
+			"menu-collapsed",
+			"fa-dedent",
+			"intercepter",
+			"accept",
+			"isLogged",
+			"homeModel.isLogged",
+			"$question"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "function2.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 247.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
