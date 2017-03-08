@@ -1,0 +1,580 @@
+@font-face {
+	font-family: 'OpenSans-Regular';
+	src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OpenSans-Bold';
+	src: url('../fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'OpenSans-Semibold';
+	src: url('../fonts/OpenSans-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'BEBAS';
+	src: url('../fonts/BEBAS.ttf') format('truetype');
+}
+
+a,a:hover {
+	color: inherit;
+}
+.limitedEdition .contentBox h2 a:hover, h2 > a:hover{
+	color: #eb2629;
+}
+.small-text {
+	font-size: 14px;
+	font-family: 'OpenSans-Semibold';
+}
+
+#auth-logoutlink {
+	cursor: pointer;
+}
+
+.stared li {
+	list-style-image: url('../images/bullet1.png');
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover{
+	color: #eb2629;
+}
+
+.navbar{
+	min-height: 40px;
+	line-height: 40px;
+	margin-bottom: 0px;
+	background-color: #000;
+	text-transform:uppercase;
+}
+.navbar .navbar-collapse{
+	padding-right:0px;
+}
+.navbar .nav>li>a{
+	padding: 10px 0px 10px 15px;
+}
+
+.nd {
+	margin-top: -20px;
+}
+
+p {
+	font-family: 'OpenSans-Regular', sans-serif;
+}
+
+body {
+	background-image: url('../images/background_image.jpg');
+	font-family: 'OpenSans-Semibold', sans-serif;
+	font-size: 14px;
+	color: #fff;
+}
+
+a:hover {
+	color:#eb2629;
+	text-decoration:none;
+}
+.headerbar{
+	background-image: url('../images/headerbg.jpg');
+	height:73px;
+	padding:14px 0px 14px 0px;
+}
+
+
+.btn-primary {
+	background-color: #eb2629;
+}
+
+.btn-primary:hover {
+	background-color: #eb2629;
+}
+
+.clear {
+	clear: both;
+}
+
+.headerbar  li,.fixtureBar li {
+	color: #000000;
+	float: left;
+	list-style: none;
+	text-transform: uppercase;
+}
+.headerbar .btn-default {
+	font-size: 16px;
+	font-family: 'OpenSans-Semibold', sans-serif;
+	color: #000;
+}
+.headerbar  li {
+	color: #EEEEEE;
+	font-size:14px;
+	padding-top:15px;
+}
+
+.gametype {
+	padding-left: 20px;
+	padding-top:19px;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.fixtureBar {
+	margin-top: 10px;
+	background-color: #eb2629;
+	height: 70px;
+	overflow: hidden;
+}
+
+.fixtureBar button {
+	margin-top: 20px;
+}
+
+.fixtureBar ul,.fixtureBar .fixtures {
+	padding-left: 20px;
+	width: 1000px;
+	overflow: hidden;
+}
+
+ul.fixtures h6 {
+	text-align:center;
+	margin: 15px 0px -5px 0px;
+	color: #ffffff;
+	font-size: 13px;
+	line-height: 0px;
+	word-wrap: break-word;
+	font-family: 'OpenSans-Bold';
+	height: auto;
+}
+
+ul.fixtures h4 {
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	margin-top: -4px;
+	display: inline-block;
+	font-family: 'OpenSans-Bold', sans-serif;
+}
+
+.fixtureBar li,.fixtureBar .item {
+	/*margin:10px 0px;*/
+	font-size: 11px;
+	text-align:center;
+	font-family: 'OpenSans-Semibold';
+	line-height: 14px;
+	color: #EEEEEE;
+	border-right: 1px solid #fff;
+	/*padding:5px 30px 5px 10px;*/
+	word-wrap: break-word;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	text-transform: capitalize;
+	font-family: 'OpenSans-Regular';
+}
+h1,h2 {
+	font-size: 24px;
+}
+
+h1,h2,h3 {
+	font-family: 'OpenSans-Semibold';
+	color: #EEE;
+}
+
+
+h3 {
+	padding-left:5px;
+	padding-top: 2px;
+	line-height: 30px;
+	margin-top: 0px;
+	font-size: 16px;
+	text-align:center;
+	text-transform:uppercase;
+}
+.gameicon{
+	background-image:url('../images/game.jpg');
+	background-repeat:no-repeat;
+	background-position: right top; 
+	background-color: #000;
+	height: 30px;
+	width:auto;
+	margin-bottom:10px;
+}
+
+
+.text-danger {
+	color: #eb2629;
+}
+
+.btn-default {
+	color: #EEEEEE;
+	text-transform: uppercase;
+	padding: 5px 20px;
+	background-image: none;
+	font-size: 14px;
+	border-color: #eb2629;
+	background-color: #eb2629;
+	
+}
+
+.btn {
+	text-align: center;
+	border-radius: 0;
+	font-family: 'OpenSans-Bold';
+	text-transform: uppercase;
+	border-color: transparent;
+}
+
+.topMargin {
+	margin-top: 10px;
+}
+
+.banners {
+	margin-left: -42px;
+}
+
+.topMargin17 {
+	margin-top: 10px;
+}
+
+.rightMargin {
+	margin-right: 10px;
+}
+
+.content {
+	background-color: #eeeeee;
+	color: #000000;
+}
+
+.contentBox {
+	height:auto;
+	padding: 10px 27px;
+	background-position: right top;
+	background-repeat: no-repeat;
+}
+
+.contentBox h1,.contentBox h2,.contentBox h3,.contentBox h4 {
+	color: #000000;
+}
+
+/*.contentBox .panel-body{
+	
+}*/
+
+.text-grey{
+	color:grey;
+}
+.contentBox .panel-body h4{
+	font-size:24px;
+}
+
+footer {
+	background-color: #000000;
+	padding: 10px 0px 10px 0px;
+	font-size: 12px;
+}
+
+footer ul {
+	padding-left: 0px;
+	margin-left: 0px;
+	height: 30px;
+	border-right: 1px solid #fff;
+}
+
+footer li {
+	font-size: 12px;
+	list-style: none;
+	line-height: 20px;
+	text-transform: capitalize;
+}
+
+footer li.text-danger {
+	margin-bottom: 10px;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+ul.foot_border {
+	border-right: none;
+}
+.footerheight{
+	height:40px;
+}
+.footerheight .col-md-3{
+	padding-right:0px;
+}
+.footerheight .col-md-3 img{
+	float:right;
+}
+
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 480px) and (orientation: portrait)
+	{
+
+	.logo{
+		height: 300px;
+	}
+	.headerbar ul {
+		padding-left: 0px;
+	}
+	.fixtureBar ul,.fixtureBar .fixtures {
+		padding-left: 20px;
+		width: 200px;
+	}
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 640px) and (orientation: landscape){
+	
+	.logo {
+		height: 150px;
+	}
+	.headerbar ul {
+		padding-left: 0px;
+	}
+	.fixtureBar ul,.fixtureBar .fixtures {
+		padding-left: 20px;
+		width: 200px;
+	}
+}
+/* #### Mobile Phones Portrait or Landscape #### */
+@media screen and (max-device-width: 640px) {
+	.logo {
+		height: 150px;
+	}
+	.headerbar ul {
+		padding-left: 0px;
+	}
+	.fixtureBar ul,.fixtureBar .fixtures {
+		padding-left: 20px;
+		width: 200px;
+	}
+}
+
+/* #### Tablets Portrait or Landscape #### */
+@media screen and (min-device-width: 768px) and (max-device-width:
+	1024px) {
+	.fixtureBar ul,.fixtureBar .fixtures {
+		padding-left: 20px;
+		width: 600px;
+	}
+	.contentBox {
+		padding: 10px 10px;
+		background-position: right top;
+		background-repeat: no-repeat;
+	}
+}
+
+/* #### Desktops #### */
+@media screen and (min-width: 1024px) {
+	/* some CSS here */
+	.bigbanner {
+		padding-left: 185px;
+	}
+}
+
+/* #### Desktops #### */
+@media screen and (min-width: 1200px) {
+	.container {
+		width: 1170px;
+	}
+}
+
+.carouselBox {
+	padding-left: 0px
+}
+
+.carouselBox>li {
+	list-style: none;
+}
+
+li {
+	list-style: none;
+}
+
+.modal-content {
+	background-color: transparent;
+	color: #ffffff;
+}
+
+.modal-backdrop.in {
+	filter: alpha(opacity =   80);
+	opacity: .8;
+}
+
+.modal-content .sports_logo {
+	margin-top: 50px;
+}
+
+.modal-content ul,.modal-content .login .col-sm-10 {
+	padding-left: 0px;
+}
+
+.modal-content .form-control,input {
+	border-radius: 0px;
+	
+}
+
+.modal-content .btn {
+	font-family: 'OpenSans-Bold';
+	height: 50px;
+	width: 300px;
+}
+
+.modal-content .facebooklogin h3 {
+	border-top: 0px;
+	padding-top: 0px;
+	line-height: auto;
+	background-color: grey;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	padding: 2px 5px;
+	margin: 0px auto;
+}
+
+
+.closeicon {
+	margin: 100px 100px 0px 0px;
+	color: #eb2629;
+	float: right;
+	font-size: 25px;
+	padding: 15px;
+	cursor: pointer;
+}
+
+.modal-content .form-control {
+	width: 300px;
+}
+
+
+/*style for indexpagecarousel*/
+/*
+.carousel-caption{
+			top:5%;
+			right:5%;
+		}	
+		.carousel-text-change{
+			text-tranform:uppercase;
+			font-size:45px;
+			font-family:'BEBAS';
+			font-weight:bold;
+			text-align:right;
+			line-height:46px;
+			
+		}
+		.carousel-caption .btn-default{
+				margin-top:50px;
+				float:right;
+				background-color:#eee;
+				color:#000;
+				padding:10px 20px 10px 20px;
+				font-size:17px;
+		}
+		.carousel-captiondate{
+				color:#fff;
+				float:right;
+				padding-top:10px;
+				
+		}*/
+/*style for indexpagecarousel end here*/
+/*#page4 h1{
+	color:#fff;
+}
+#page4 h5{
+	font-weight:bold;
+	font-size:22px;
+	color:#fff;
+	text-transform:uppercase;
+}
+.ts-example-modal-lg .closeicon,.contact-example-modal-lg .closeicon{
+	margin: 50px 50px 0px 0px;
+	color: #fff;
+	float: right;
+	font-size: 25px;
+	padding: 15px;
+	cursor: pointer;
+}
+.aboutus h1{
+	font-size:26px;
+	color:#fff;
+}
+.aboutus p{
+	font-size:20px;
+}
+.contactUs{
+	font-size:20px;
+	font-weight:normal;
+}*/
+.limitedEdition .contentBox h2 a:hover{
+	color:#000;
+}
+.mediaGallery .contentBox{
+	height:auto;
+}
+
+.Editors{
+	height:350px;
+}
+.reportby{
+	height:689px;
+}
+
+.prediction{
+	height:188px;
+	
+	background-image: url('/images/prediction_homepage_small.jpg');
+}
+.content .prediction h2{
+	text-align:center;
+	
+	
+}
+.prediction .playbutton{
+		float:right;	
+		margin-top:49px;
+		margin-right:33px;
+}
+.limitedEdition .contentBox h2 a:hover{
+	color:#eb2629;
+}
+.contact{
+	margin-right:50px;
+}
+.Terms{
+	margin-right:20px;
+}
+
+.text-predict{
+	text-transform:uppercase;
+	font-family:'BEBAS';
+	color:#eee;
+	font-size:27px;
+	line-height:28px;
+	padding-right:25px;
+}
+.more:hover{
+	color:#eb2629;
+}
+
+ .useraccouttable>tbody>tr>td{
+	color:#000;
+}
+.login input {
+	height:50px;
+}
+
+.navbar-inverse .dropdown-menu{
+	left:auto;
+	right:0;
+}
+.white{
+	background-color:#eeeeee;
+	color:#000;
+}
