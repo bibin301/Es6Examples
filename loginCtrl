@@ -1,0 +1,66 @@
+(function() {
+    'use strict';
+    
+    //loginModel.appLogin(loginModel.user)-
+    
+    angular.module(appObj.id).controller('loginCtrl', loginCtrl);
+    loginCtrl.$inject = ['$scope', '$location', 'appAuthSrv'];
+
+    function loginCtrl($scope, $location, appAuthSrv) {
+
+        $scope.loginModel = {};
+        $scope.loginModel.invalid = false;
+        $scope.loginModel.appLogin = appLogin;
+        $scope.loginModel.loginSuccess = loginSuccess;
+        $scope.loginModel.loginFailed = loginFailed;
+
+        function appLogin(userData) {
+          alert("ok");
+            appAuthSrv.login(userData, $scope.loginModel.loginSuccess, $scope.loginModel.loginFailed);
+        }
+
+
+
+        function loginSuccess(userData, path) {
+            path = typeof path !== 'undefined' ? path : "/dashboard";
+
+            $location.path(path);
+        }
+
+
+        function loginFailed() {
+          console.log("Invalid username and/or password");
+          $scope.loginModel.invalid = true;
+          $scope.loginModel.msgText = "Invalid username and/or password";
+      }
+        //     $scope.appLogin =function(userData){
+        //       console.log("get input value" , us);
+        //
+        //       appAuthSrv.login(userData);
+        //
+        //       // if(us.name =='007' && us.pass=='1234'){
+        //       //   $location.path('/dashboard');
+        //       // }else{
+        //       //   $scope.errorMessage ="invalid credientials"
+        //       // }
+        //
+        // //       var data ={
+        // // "buildversion": 1,
+        // //   "dealercode":us.name,
+        // //   "dealerpassword":us.pass
+        // //       };
+        //
+        // //       console.log("login data",data)
+        // //
+        // // loginSrv.loginCreate(data).success(function(){
+        // //
+        // // $location.path('/dashboard');
+        // // console.log("success");
+        // // }).error(function(err){
+        // // $scope.errorMessage ="please try again";
+        // //   console.log("failed");
+        // // })
+        //     }
+
+    }
+})();
