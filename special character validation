@@ -5,3 +5,21 @@ function alpha(e) {
 }
 
 onkeypress="return alpha(event)"
+
+
+for tab enter
+
+
+ onkeypress="return alpha(event)"
+  
+  
+
+  
+  function alpha(e) {
+var k = e.keyCode;
+if (k == 9) {
+ return true;
+}
+document.all ? k = e.keyCode : k = e.which;
+return ((k > 65 && k < 91) || (k > 96 && k < 123) || k == 8 || (k >= 48 && k <= 57 || k == 64 ||k == 45 ||k == 46 || k == 95));
+}
