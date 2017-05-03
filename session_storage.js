@@ -1,3 +1,14 @@
+'use strict';
+var appObj ={
+  id:'simpleApp',
+  tokenKey: 'Accept',
+   userStorage: sessionStorage,
+  settingsStorage: localStorage,
+   userKey: 'app.user'
+
+};
+
+
 // Code goes here
 
 /*  App creation:
