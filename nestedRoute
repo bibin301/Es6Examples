@@ -1,0 +1,1492 @@
+'use strict'
+angular.module("")
+    .config(["$stateProvider", "$urlRouterProvider", function ($stateProvider, $urlRouterProvider) {
+        $stateProvider
+            .state("login", {
+                title: 'Login',
+                url: "/login",
+                isLogin: false,
+                templateUrl: "Modules/Views/Login/login.main.html",
+                controller: "LoginCtrl"
+            })
+            .state("qfor", {
+                url: "/qfor",
+                abstract: true,
+                authenticate: true,
+                views: {
+                    //Main Dashboard Template
+                    '': {
+                        templateUrl: 'Modules/Views/dashboard/dashboard.html',
+                        controller: 'MasterCtrl'
+                    },
+                    // Main Sidebar tempalte
+                    'sidebar@qfor': {
+                        templateUrl: 'Modules/Views/dashboard/sidebar.html'
+                    },
+                    //User details
+                    'user@qfor': {
+                        templateUrl: 'Modules/Views/dashboard/userBlock.html',
+                        controller: "userBlockCtrl"
+                    },
+                    //footer details
+                    'footer@qfor': {
+                        templateUrl: 'Modules/Views/dashboard/footer.html'
+                    }
+                }
+            })
+            .state("mstAccessV", {
+                url: "/mstAccessV",
+                views: {
+                    '': {
+                        templateUrl: 'Modules/Views/01Administrator/mstAccessV.html',
+                        controller: 'mstAccessVCtrl'
+                    }
+                }
+            })
+            .state("qfor.home", {
+                isLogin: true,
+                title: 'Home',
+                url: "/mstLandingPage/:FOLDERFK",
+                templateUrl: "Modules/Views/01Administration/mstLandingPage.html",
+                controller: "mstLandingPageCtrl"
+            })
+
+            .state("qfor.mstInbox", {
+                isLogin: true,
+                title: 'Inbox',
+                url: "/mstInbox/:FOLDERFK",
+                templateUrl: "Modules/Views/01Administration/mstInbox.html",
+                controller: "mstInboxCtrl"
+            }).state("qfor.mstCompose", {
+                isLogin: true,
+                title: 'Compose',
+                url: "/mstCompose/:USER_MESSAGE_PK/:FLAG",
+                templateUrl: "Modules/Views/01Administration/mstCompose.html",
+                controller: "mstComposeCtrl"
+            }).state("qfor.viewMessage", {
+                isLogin: true,
+                title: 'ViewMessage',
+                url: "/viewMessage/:USER_MESSAGE_PK",
+                templateUrl: "Modules/Views/01Administration/mstViewMessage.html",
+                controller: "mstViewMessageCtrl"
+            })
+
+            .state("qfor.mstCorporateProfile", {
+                isLogin: true,
+                title: 'Corporate Profile',
+                url: "/mstCorporateProfile",
+                templateUrl: "Modules/Views/01Administration/mstCorporateProfile.html",
+                controller: "mstCorporateProfileCtrl"
+            })
+            .state("qfor.mstLocationListing", {
+                isLogin: true,
+                title: 'Location & Responsibility',
+                url: "/mstLocationListing",
+                templateUrl: "Modules/Views/01Administration/mstLocationListing.html",
+                controller: "mstLocationListingCtrl"
+            })
+            .state("qfor.lstCustomerProfile", {
+                isLogin: true,
+                title: 'Customer Profile',
+                url: "/lstCustomerProfile",
+                //templateUrl: "Modules/Views/01Administration/lstCustomerProfile.html",
+                templateUrl: "Modules/Views/04SalesMarketing/lstCustomerProfile.html",
+                controller: "lstCustomerProfileCtrl"
+            })
+            .state("qfor.addlocationAndResponsibility", {
+                isLogin: true,
+                title: 'Location Entry',
+                url: "/addlocationAndResponsibility/:LOCATION_MST_PK",
+                templateUrl: "Modules/Views/01Administration/addlocationAndResponsibility.html",
+                controller: "addlocationAndResponsibilityCtrl"
+            })
+
+            .state("qfor.lstLocationListingOrganogram", {
+                isLogin: true,
+                title: 'Organization Chart',
+                url: "/lstLocationListingOrganogram/:LOCATION_MST_PK/:FORMFLAG",
+                templateUrl: "Modules/Views/01Administration/lstLocationListingOrganogram.html",
+                controller: "lstLocationListingOrganogramCntrl"
+            })
+            .state("qfor.lstProtocolDefinition", {
+                isLogin: true,
+                title: 'Protocol Definition',
+                url: "/lstProtocolDefinition",
+                templateUrl: "Modules/Views/01Administration/lstProtocolDefinition.html",
+                controller: "lstProtocolDefinitionCtrl"
+            })
+            .state("qfor.addProtocolDefinition", {
+                isLogin: true,
+                title: 'Protocol Entry Form',
+                url: "/addProtocolDefinition/:PROTOCOL_MST_PK",
+                templateUrl: "Modules/Views/01Administration/addProtocolDefinition.html",
+                controller: "addProtocolDefinitionCtrl"
+            })
+            .state("qfor.lstDocument", {
+                isLogin: true,
+                title: 'Document',
+                url: "/lstDocument",
+                templateUrl: "Modules/Views/01Administration/lstDocument.html",
+                controller: "lstDocumentCtrl"
+            })
+            .state("qfor.addDocument", {
+                isLogin: true,
+                title: 'Document Entry',
+                url: "/addDocument/:DOCUMENT_MST_PK",
+                templateUrl: "Modules/Views/01Administration/addDocument.html",
+                controller: "addDocumentCtrl"
+            })
+            .state("qfor.addRestriction", {
+                isLogin: true,
+                title: 'Restriction Entry',
+                url: "/addRestriction/:RESTRICTION_PK",
+                templateUrl: "Modules/Views/01Administration/addRestriction.html",
+                controller: "addRestrictionCtrl"
+            })
+            .state("qfor.lstDocumentWorkFlow", {
+                isLogin: true,
+                title: 'Document Work Flow',
+                url: "/lstDocumentWorkFlow",
+                templateUrl: "Modules/Views/01Administration/lstDocumentWorkFlow.html",
+                controller: "lstDocumentWorkFlowCtrl"
+            })
+            .state("qfor.addDocumentWorkFlowEntry", {
+                isLogin: true,
+                title: 'Document Work Flow Entry',
+                url: "/addDocumentWorkFlowEntry/:WORKFLOW_RULES_PK",
+                templateUrl: "Modules/Views/01Administration/addDocumentWorkFlowEntry.html",
+                controller: "addDocumentWorkFlowEntryCtrl"
+            })
+            .state("qfor.lstRestriction", {
+                isLogin: true,
+                title: 'Restriction',
+                url: "/lstRestriction",
+                templateUrl: "Modules/Views/01Administration/lstRestriction.html",
+                controller: "lstRestrictionCtrl"
+            })
+            .state("qfor.jobCardProfitability", {
+                isLogin: true,
+                title: 'Profitability',
+                url: "/jobCardProfitability/:JOB_CARD_PK/:BIZ_TYPE/:PROCESS_TYPE/:CARGO_TYPE",
+                templateUrl: "Modules/Views/24CommonForm/jobCardProfitability.html",
+                controller: "jobCardProfitabilityCtrl"
+            })
+            .state("qfor.lstRestrictionApproval", {
+                isLogin: true,
+                title: 'Restriction Approval',
+                url: "/lstRestrictionApproval",
+                templateUrl: "Modules/Views/01Administration/lstRestrictionApproval.html",
+                controller: "lstRestrictionApprovalCtrl"
+            })
+            .state("qfor.lstWorkflowRules", {
+                isLogin: true,
+                title: 'Workflow Manager Rules',
+                url: "/lstWorkflowRules",
+                templateUrl: "Modules/Views/01Administration/lstWorkflowRules.html",
+                controller: "lstWorkflowRulesCtrl"
+            })
+            .state("qfor.addWorkflowRulesEntry", {
+                isLogin: true,
+                title: 'Workflow Manager Rules ',
+                url: "/addWorkflowRulesEntry/:ACTIVITY/:RULESREFNO/:EXPIRY_DATE/:IS_ACTIVE/:MODIFIED_DATE/:CREATED_DATE/:NEXT_ACTIVITY/:WF_RULES_EXT_ACTIVITY",
+                templateUrl: "Modules/Views/01Administration/addWorkflowRulesEntry.html",
+                controller: "addWorkflowRulesEntryCtrl"
+            }).state("qfor.mstSettings", {
+                isLogin: true,
+                title: 'Settings',
+                url: "/mstSettings",
+                templateUrl: "Modules/Views/01Administration/mstSettings.html",
+                controller: "mstSettingsCtrl"
+            })
+            .state("qfor.lstUserTask", {
+                isLogin: true,
+                title: 'User Task List',
+                url: "/lstUserTask",
+                templateUrl: "Modules/Views/01Administration/lstUserTask.html",
+                controller: "lstUserTaskCtrl"
+            })
+            .state("qfor.lstInvoiceApproval", {
+                isLogin: true,
+                title: 'Invoice Approval',
+                url: "/lstInvoiceApproval",
+                templateUrl: "Modules/Views/11Receivables/lstInvoiceApproval.html",
+                controller: "lstInvoiceApprovalCtrl"
+            })
+            .state("qfor.mstWorkflowTaskAllotment", {
+                isLogin: true,
+                title: 'WorkFlow Task Allotment',
+                url: "/mstWorkFlowTaskAllotment",
+                templateUrl: "Modules/Views/01Administration/mstWorkFlowTaskAllotment.html",
+                controller: "mstWorkFlowTaskAllotmentCtrl"
+            })
+            .state("qfor.mstStorageFolderDefinition", {
+                isLogin: true,
+                title: 'Storage Folder Definition',
+                url: "/mstStorageFolderDefinition",
+                templateUrl: "Modules/Views/01Administration/mstStorageFolderDefinition.html",
+                controller: "mstStorageFolderDefinitionCtrl"
+            })
+            .state("qfor.mstMessageCenter", {
+                isLogin: true,
+                title: 'Messaging Center',
+                url: "/mstMessageCenter/:FROMPAGE/:CUST_PK",
+                templateUrl: "Modules/Views/01Administration/mstMessageCenter.html",
+                controller: "mstMessageCenterCtrl"
+            })
+            .state("qfor.mstUserTask", {
+                isLogin: true,
+                title: 'Usertask Listing',
+                url: "/mstUserTask",
+                templateUrl: "Modules/Views/01Administration/mstUserTask.html",
+                controller: "mstUserTaskCtrl"
+            })
+            .state("qfor.lstAnnouncement", {
+                isLogin: true,
+                title: 'Announcements',
+                url: "/lstAnnouncement/:ANN_STATUS",
+                templateUrl: "Modules/Views/01Administration/lstAnnouncement.html",
+                controller: "lstAnnouncementCtrl"
+            })
+            .state("qfor.addAnnouncement", {
+                isLogin: true,
+                title: 'Announcements Entry',
+                url: "/addAnnouncement/:ANNOUNCEMENT_PK/:TYPE_FLAG/:FROM_PAGE",
+                templateUrl: "Modules/Views/01Administration/addAnnouncement.html",
+                controller: "addAnnouncementCtrl"
+            })
+            .state("qfor.mstFinancialInterface", {
+                isLogin: true,
+                title: 'Financial Interface',
+                url: "/mstFinancialInterface",
+                templateUrl: "Modules/Views/01Administration/mstFinancialInterface.html",
+                controller: "mstFinancialInterfaceCtrl"
+            })
+            .state("qfor.mstFinServiceSetup", {
+                isLogin: true,
+                title: 'Service Schedule Setup',
+                url: "/mstFinServiceSetup",
+                templateUrl: "Modules/Views/01Administration/mstFinServiceSetup.html",
+                controller: "mstFinServiceSetupCtrl"
+            })
+            .state("qfor.mstAppFinLocMapping", {
+                isLogin: true,
+                title: 'App. - Fin. Loc. Mapping',
+                url: "/mstAppFinLocMapping",
+                templateUrl: "Modules/Views/01Administration/mstAppFinLocMapping.html",
+                controller: "mstAppFinLocMappingCtrl"
+            })
+            .state("qfor.mstDocumentFlowDefinition", {
+                isLogin: true,
+                title: 'Document Flow Definition',
+                url: "/mstDocumentFlowDefinition",
+                templateUrl: "Modules/Views/01Administration/mstDocumentFlowDefinition.html",
+                controller: "mstDocumentFlowDefinitionCtrl"
+            })
+            .state("qfor.mstActivityLog", {
+                isLogin: true,
+                title: 'Activity Log',
+                url: "/mstActivityLog",
+                templateUrl: "Modules/Views/01Administration/mstActivityLog.html",
+                controller: "mstActivityLogCtrl"
+            })
+            .state("qfor.mstEcommGateWay", {
+                isLogin: true,
+                title: 'Ecomm Gate Way',
+                url: "/mstEcommGateWay",
+                templateUrl: "Modules/Views/01Administration/mstEcommGateWay.html",
+                controller: "mstEcommGateWayCtrl"
+            })
+            .state("qfor.mstDefinitionOfUsers", {
+                isLogin: true,
+                title: 'Definition Of Users',
+                url: "/mstDefinitionOfUsers",
+                templateUrl: "Modules/Views/02Security/mstDefinitionOfUsers.html",
+                controller: "mstDefinitionOfUsersCtrl"
+            })
+            .state("qfor.lstDefinitionOfRoles", {
+                isLogin: true,
+                title: 'Definition Of Roles',
+                url: "/lstDefinitionOfRoles",
+                templateUrl: "Modules/Views/02Security/lstDefinitionOfRoles.html",
+                controller: "lstDefinitionOfRolesCtrl"
+            })
+            .state("qfor.addDefinitionOfRoles", {
+                isLogin: true,
+                title: 'Role Entry',
+                url: "/addDefinitionOfRoles/:ROLE_MST_TBL_PK",
+                templateUrl: "Modules/Views/02Security/addDefinitionOfRoles.html",
+                controller: "addDefinitionOfRolesCtrl"
+            })
+            .state("qfor.lstUserAccessListing", {
+                isLogin: true,
+                title: 'User Access Listing',
+                url: "/lstUserAccessListing",
+                templateUrl: "Modules/Views/02Security/lstUserAccessListing.html",
+                controller: "lstUserAccessListingCtrl"
+            })
+            .state("qfor.addUserAccessListing", {
+                isLogin: true,
+                title: 'User Access Entry',
+                url: "/addUserAccessListing/:USER_MST_PK/:LOCATION_MST_PK",
+                templateUrl: "Modules/Views/02Security/addUserAccessListing.html",
+                controller: "addUserAccessListingCtrl"
+            })
+            .state("qfor.mstSetupOfEmployee", {
+                isLogin: true,
+                title: 'Setup of Employee',
+                url: "/mstSetupOfEmployee",
+                templateUrl: "Modules/Views/02Security/mstSetupOfEmployee.html",
+                controller: "mstSetupOfEmployeeCtrl"
+            })
+            .state("qfor.mstPasswordManagement", {
+                isLogin: true,
+                title: 'Password Management',
+                url: "/mstPasswordManagement",
+                templateUrl: "Modules/Views/02Security/mstPasswordManagement.html",
+                controller: "mstPasswordManagementCtrl"
+            })
+            .state("qfor.mstUserPreference", {
+                isLogin: true,
+                title: 'User Preference',
+                url: "/mstUserPreference",
+                templateUrl: "Modules/Views/02Security/mstUserPreference.html",
+                controller: "mstUserPreferenceCtrl"
+            })
+            .state("qfor.mstAuditTrailSetup", {
+                isLogin: true,
+                title: 'Audit Trail Setup',
+                url: "/mstAuditTrailSetup",
+                templateUrl: "Modules/Views/02Security/mstAuditTrailSetup.html",
+                controller: "mstAuditTrailSetupCtrl"
+            })
+            .state("qfor.rptAuditTrailLogInfo", {
+                isLogin: true,
+                title: 'Audit Trail Log Info',
+                url: "/rptAuditTrailLogInfo",
+                templateUrl: "Modules/Views/02Security/rptAuditTrailLogInfo.html",
+                controller: "rptAuditTrailLogInfoCtrl"
+            })
+            .state("qfor.rptAuditTrail", {
+                isLogin: true,
+                title: 'Audit Trail',
+                url: "/rptAuditTrail",
+                templateUrl: "Modules/Views/02Security/rptAuditTrail.html",
+                controller: "rptAuditTrailCtrl"
+            })
+            .state("qfor.mstArea", {
+                isLogin: true,
+                title: 'Area Master',
+                url: "/mstArea",
+                templateUrl: "Modules/Views/03Setup/mstArea.html",
+                controller: "mstAreaCtrl"
+            })
+
+            .state("qfor.lstBank", {
+                isLogin: true,
+                title: 'Bank Listing',
+                url: "/lstBank",
+                templateUrl: "Modules/Views/03Setup/lstBank.html",
+                controller: "lstBankCtrl"
+            })
+            .state("qfor.mstAirlineSchedule", {
+                isLogin: true,
+                title: 'Airline Schedule',
+                url: "/mstAirlineSchedule",
+                templateUrl: "Modules/Views/03Setup/mstAirlineSchedule.html",
+                controller: "mstAirlineScheduleCtrl"
+            })
+
+            .state("qfor.addBank", {
+                isLogin: true,
+                title: 'Bank Details Entry',
+                url: "/addBank/:BANK_MST_PK",
+                templateUrl: "Modules/Views/03Setup/addBank.html",
+                controller: "addBankCtrl"
+            })
+            .state("qfor.mstBarcodeManager", {
+                isLogin: true,
+                title: 'Barcode Manager',
+                url: "/mstBarcodeManager",
+                templateUrl: "Modules/Views/03Setup/mstBarcodeManager.html",
+                controller: "mstBarcodeManagerCtrl"
+            })
+            .state("qfor.mstCargoMovementCode", {
+                isLogin: true,
+                title: 'Cargo Movement Code',
+                url: "/mstCargoMovementCode",
+                templateUrl: "Modules/Views/03Setup/mstCargoMovementCode.html",
+                controller: "mstCargoMovementCodeCtrl"
+            })
+            .state("qfor.lstClause", {
+                isLogin: true,
+                title: 'Clause Master',
+                url: "/lstClause",
+                templateUrl: "Modules/Views/03Setup/lstClause.html",
+                controller: "lstClauseCtrl"
+            })
+            .state("qfor.addClause", {
+                isLogin: true,
+                title: 'Clause Entry Form',
+                url: "/addClause/:REFNO/:BUSINESS_TYPE/:ACTIVE_FLAG/:PROCESS_TYPE/:CLAUSE_TYPE/:VALID_FROM/:VALID_TO/:BL_CLAUSE_PK",
+                templateUrl: "Modules/Views/03Setup/addClause.html",
+                controller: "addClauseCtrl"
+            })
+            .state("qfor.mstChargeMapping", {
+                isLogin: true,
+                title: 'Charge Mapping',
+                url: "/mstChargeMapping",
+                templateUrl: "Modules/Views/03Setup/mstChargeMapping.html",
+                controller: "mstChargeMappingCtrl"
+            })
+            .state("qfor.mstChargeMaster", {
+                isLogin: true,
+                title: 'Charge Master',
+                url: "/mstChargeMaster",
+                templateUrl: "Modules/Views/03Setup/mstChargeMaster.html",
+                controller: "mstChargeMasterCtrl"
+            })
+            .state("qfor.mstCommodity", {
+                isLogin: true,
+                title: 'Commodity',
+                url: "/mstCommodity",
+                templateUrl: "Modules/Views/03Setup/mstCommodity.html",
+                controller: "mstCommodityCtrl"
+            })
+            .state("qfor.mstCommodityGroup", {
+                isLogin: true,
+                title: 'Commodity Group',
+                url: "/mstCommodityGroup",
+                templateUrl: "Modules/Views/03Setup/mstCommodityGroup.html",
+                controller: "mstCommodityGroupCtrl"
+            })
+            .state("qfor.mstCurrency", {
+                isLogin: true,
+                title: 'Currency',
+                url: "/mstCurrency",
+                templateUrl: "Modules/Views/03Setup/mstCurrency.html",
+                controller: "mstCurrencyCtrl"
+            })
+            .state("qfor.mstCostElement", {
+                isLogin: true,
+                title: 'Cost Element',
+                url: "/mstCostElement",
+                templateUrl: "Modules/Views/03Setup/mstCostElement.html",
+                controller: "mstCostElementCtrl"
+            })
+            .state("qfor.mstCustomerCategory", {
+                isLogin: true,
+                title: 'Customer Category',
+                url: "/mstCustomerCategory",
+                templateUrl: "Modules/Views/03Setup/mstCustomerCategory.html",
+                controller: "mstCustomerCategoryCtrl"
+            })
+            .state("qfor.lstExchangeRate", {
+                isLogin: true,
+                title: 'Exchange Rates',
+                url: "/lstExchangeRate",
+                templateUrl: "Modules/Views/03Setup/lstExchangeRate.html",
+                controller: "lstExchangeRateCtrl"
+            })
+            .state("qfor.addExchangeRate", {
+                isLogin: true,
+                title: 'Exchange Rate Entry',
+                url: "/addExchangeRate/:EXCHANGE_RATE_PK/:EXRATETYPE/:EXBASECUR/:VOYAGEPK/:VOYAGE/:FROM/:VSLNAME",
+                templateUrl: "Modules/Views/03Setup/addExchangeRate.html",
+                controller: "addExchangeRateCtrl"
+            })
+            .state("qfor.mstShipmentTerms", {
+                isLogin: true,
+                title: 'Container Move Code',
+                url: "/mstShipmentTerms",
+                templateUrl: "Modules/Views/03Setup/mstShipmentTerms.html",
+                controller: "mstShipmentTermsCtrl"
+            })
+            .state("qfor.addCreditControlManager", {
+                isLogin: true,
+                title: 'Credit Control Manager Entry',
+                url: "/addCreditControlManager/:LOCATION_MST_PK/:USER_MST_PK/:CR_MANAGER_TBL_PK/:ACTIVE_FLAG",
+                templateUrl: "Modules/Views/03Setup/addCreditControlManager.html",
+                controller: "addCreditControlManagerCtrl"
+            })
+            .state("qfor.lstCreditControlManager", {
+                isLogin: true,
+                title: 'Credit Control Manager',
+                url: "/lstCreditControlManager",
+                templateUrl: "Modules/Views/03Setup/lstCreditControlManager.html",
+                controller: "lstCreditControlManagerCtrl"
+            })
+            .state("qfor.mstCompanyDepartment", {
+                isLogin: true,
+                title: 'Company Department',
+                url: "/mstCompanyDepartment",
+                templateUrl: "Modules/Views/03Setup/mstCompanyDepartment.html",
+                controller: "mstCompanyDepartmentCtrl"
+            })
+            .state("qfor.mstDepartmentDesignation", {
+                isLogin: true,
+                title: 'Department Designation ',
+                url: "/mstDepartmentDesignation/:DEPARTMENT_MST_PK",
+
+                templateUrl: "Modules/Views/03Setup/mstDepartmentDesignation.html",
+                controller: "mstDepartmentDesignationCtrl"
+            })
+            .state("qfor.mstAirFreightSlabs", {
+                isLogin: true,
+                title: 'Air Freight Master',
+                url: "/mstAirFreightSlabs",
+                templateUrl: "Modules/Views/03Setup/mstAirFreightSlabs.html",
+                controller: "mstAirFreightSlabsCtrl"
+            })
+            .state("qfor.mstCountry", {
+                isLogin: true,
+                title: 'Country Master',
+                url: "/mstCountry",
+                templateUrl: "Modules/Views/03Setup/mstCountry.html",
+                controller: "mstCountryCtrl"
+            })
+            .state("qfor.mstContainerType", {
+                isLogin: true,
+                title: 'Container Type',
+                url: "/mstContainerType",
+                templateUrl: "Modules/Views/03Setup/mstContainerType.html",
+                controller: "mstContainerTypeCtrl"
+            })
+            .state("qfor.mstCustomerType", {
+                isLogin: true,
+                title: 'Customer Type',
+                url: "/mstCustomerType",
+                templateUrl: "Modules/Views/03Setup/mstCustomerType.html",
+                controller: "mstCustomerTypeCtrl"
+            })
+            .state("qfor.mstCustomsStatusCode", {
+                isLogin: true,
+                title: 'Custom Status Code',
+                url: "/mstCustomsStatusCode",
+                templateUrl: "Modules/Views/03Setup/mstCustomsStatusCode.html",
+                controller: "mstCustomsStatusCodeCtrl"
+            })
+            .state("qfor.mstLocationType", {
+                isLogin: true,
+                title: 'Location Type',
+                url: "/mstLocationType",
+                templateUrl: "Modules/Views/03Setup/mstLocationType.html",
+                controller: "mstLocationTypeCtrl"
+            })
+            .state("qfor.mstPackType", {
+                isLogin: true,
+                title: 'Pack Type',
+                url: "/mstPackType",
+                templateUrl: "Modules/Views/03Setup/mstPackType.html",
+                controller: "mstPackTypeCtrl"
+            })
+            .state("qfor.mstPlace", {
+                isLogin: true,
+                title: 'Place Master',
+                url: "/mstPlace",
+                templateUrl: "Modules/Views/03Setup/mstPlace.html",
+                controller: "mstPlaceCtrl"
+            })
+            .state("qfor.mstPort", {
+                isLogin: true,
+                title: 'Port/Airport',
+                url: "/mstPort",
+                templateUrl: "Modules/Views/03Setup/mstPort.html",
+                controller: "mstPortCtrl"
+            })
+            .state("qfor.lstPortGroup", {
+                isLogin: true,
+                title: 'Port Group Master Listing',
+                url: "/lstPrtGroup",
+                templateUrl: "Modules/Views/03Setup/lstPortGroup.html",
+                controller: "lstPortGroupCtrl"
+            })
+            .state("qfor.addPortGroup", {
+                isLogin: true,
+                title: 'Port Group Master',
+                url: "/addPrtGroup/:P_PORT_GROUP_PK/:BIZ_TYPE",
+                templateUrl: "Modules/Views/03Setup/addPortGroup.html",
+                controller: "addPortGroupCtrl"
+            })
+            .state("qfor.mstPositionDesignation", {
+                isLogin: true,
+                title: 'Position Designation',
+                url: "/mstPositionDesignation",
+                templateUrl: "Modules/Views/03Setup/mstPositionDesignation.html",
+                controller: "mstPositionDesignationCtrl"
+            })
+            .state("qfor.addRegion", {
+                isLogin: true,
+                title: 'Region Details',
+                url: "/addRegion/:ACTIVE_FLAG/:REGION_MST_PK",
+                templateUrl: "Modules/Views/03Setup/addRegion.html",
+                controller: "addRegionCtrl"
+            })
+            .state("qfor.lstCreditPolicy", {
+                isLogin: true,
+                title: 'Credit Policy Listing',
+                url: "/lstCreditPolicy",
+                templateUrl: "Modules/Views/03Setup/lstCreditPolicy.html",
+                controller: "lstCreditPolicyCtrl"
+            })
+            .state("qfor.mstMultLingualSetting", {
+                isLogin: true,
+                title: 'Multi Lingual Setting',
+                url: "/mstMultLingualSetting",
+                templateUrl: "Modules/Views/03Setup/mstMultLingualSetting.html",
+                controller: "mstMultLingualSettingCtrl"
+            })
+            .state("qfor.addCreditPolicy", {
+                isLogin: true,
+                title: 'Credit Policy Entry',
+                url: "/addCreditPolicy/:CUSTOMER_PK/:BIZ_TYPE",
+                templateUrl: "Modules/Views/03Setup/addCreditPolicy.html",
+                controller: "addCreditPolicyCtrl"
+            })
+            .state("qfor.lstRegion", {
+                isLogin: true,
+                title: 'Region',
+                url: "/lstRegion",
+                templateUrl: "Modules/Views/03Setup/lstRegion.html",
+                controller: "lstRegionCtrl"
+            })
+            .state("qfor.mstSalesCallReason", {
+                isLogin: true,
+                title: 'Sales Call Reason',
+                url: "/mstSalesCallReason",
+                templateUrl: "Modules/Views/03Setup/mstSalesCallReason.html",
+                controller: "mstSalesCallReasonCtrl"
+            })
+            .state("qfor.mstSalesCallFailureReason", {
+                isLogin: true,
+                title: 'Sales Call Failure Reason',
+                url: "/mstSalesCallFailureReason",
+                templateUrl: "Modules/Views/03Setup/mstSalesCallFailureReason.html",
+                controller: "mstSalesCallFailureReasonCtrl"
+            })
+            .state("qfor.mstSalesCallType", {
+                isLogin: true,
+                title: 'Sales Call Type',
+                url: "/mstSalesCallType",
+                templateUrl: "Modules/Views/03Setup/mstSalesCallType.html",
+                controller: "mstSalesCallTypeCtrl"
+            })
+            .state("qfor.lstSector", {
+                isLogin: true,
+                title: 'Sector Definition',
+                url: "/lstSector",
+                templateUrl: "Modules/Views/03Setup/lstSector.html",
+                controller: "lstSectorCtrl"
+            })
+            .state("qfor.mstShippingTerms", {
+                isLogin: true,
+                title: 'Shipping Terms',
+                url: "/mstShippingTerms",
+                templateUrl: "Modules/Views/03Setup/mstShippingTerms.html",
+                controller: "mstShippingTermsCtrl"
+            })
+            .state("qfor.addSector", {
+                isLogin: true,
+                title: 'Sectors Definition Entry',
+                url: "/addSector/:SECTOR_MST_PK/:TRADE_CODE/:BUSINESS_TYPE",
+                templateUrl: "Modules/Views/03Setup/addSector.html",
+                controller: "addSectorCtrl"
+            })
+            .state("qfor.lstTariffGroup", {
+                isLogin: true,
+                title: 'Tariff Group',
+                url: "/lstTariffGroup",
+                templateUrl: "Modules/Views/03Setup/lstTariffGroup.html",
+                controller: "lstTariffGroupCtrl"
+            })
+            .state("qfor.addTariffGroup", {
+                isLogin: true,
+                title: 'Tariff Group',
+                url: "/addTariffGroup/:TARIFF_GRP_MST_PK/:TARIFF_GRP_ID/:BIZ_TYPE/:ACTIVE_FLAG/:TARIFF_GRP_NAME",
+                templateUrl: "Modules/Views/03Setup/addTariffGroup.html",
+                controller: "addTariffGroupCtrl"
+            })
+            .state("qfor.mstSupplierType", {
+                isLogin: true,
+                title: 'Supplier Type',
+                url: "/mstSupplierType",
+                templateUrl: "Modules/Views/03Setup/mstSupplierType.html",
+                controller: "mstSupplierTypeCtrl"
+            })
+            .state("qfor.lstTradeDefinition", {
+                isLogin: true,
+                title: 'Trade Definition',
+                url: "/lstTradeDefinition",
+                templateUrl: "Modules/Views/03Setup/lstTradeDefinition.html",
+                controller: "lstTradeDefinitionCtrl"
+            })
+            .state("qfor.addTradeDefinition", {
+                isLogin: true,
+                title: 'Trade',
+                url: "/addTradeDefinition/:TRADE_MST_PK/:TRADE_CODE/:TRADE_NAME/:BUSINESS_TYPE/:ACTIVE_FLAG",
+                templateUrl: "Modules/Views/03Setup/addTradeDefinition.html",
+                controller: "addTradeDefinitionCtrl"
+            })
+            .state("qfor.mstUOM", {
+                isLogin: true,
+                title: 'UOM',
+                url: "/mstUOM",
+                templateUrl: "Modules/Views/03Setup/mstUOM.html",
+                controller: "mstUOMCtrl"
+            })
+            .state("qfor.mstVAT", {
+                isLogin: true,
+                title: 'VAT Master',
+                url: "/mstVAT",
+                templateUrl: "Modules/Views/03Setup/mstVAT.html",
+                controller: "mstVATCtrl"
+            })
+            .state("qfor.CodeGenerator", {
+                isLogin: true,
+                title: 'Code Generator',
+                url: "/CodeGenerator",
+                templateUrl: "Modules/Views/03Setup/CodeGenerator.html",
+                controller: "CodeGeneratorCtrl"
+            })
+            .state("qfor.lstVesselVoyage", {
+                isLogin: true,
+                title: 'Vessel Voyage',
+                url: "/lstVesselVoyage",
+                templateUrl: "Modules/Views/03Setup/lstVesselVoyage.html",
+                controller: "lstVesselVoyageCtrl"
+            })
+            .state("qfor.lstAgentDefination", {
+                isLogin: true,
+                title: 'Agent Defination',
+                url: "/lstAgentDefination/:FROMPAGE",
+                templateUrl: "Modules/Views/06SupplierManagement/lstAgentDefination.html",
+                controller: "lstAgentDefinationCtrl"
+            })
+            .state("qfor.addAgentDefination", {
+                isLogin: true,
+                title: 'Agent Defination',
+                url: "/addAgentDefination/:FROMPAGE/:AGENT_ID",
+                templateUrl: "Modules/Views/06SupplierManagement/addAgentDefination.html",
+                controller: "addAgentDefinationCtrl"
+            })
+            .state("qfor.lstAgentContract", {
+                isLogin: true,
+                title: 'Agent Contract Defination',
+                url: "/lstAgentContract/:FROMPAGE",
+                templateUrl: "Modules/Views/06SupplierManagement/lstAgentContract.html",
+                controller: "lstAgentContractCtrl"
+            })
+            .state("qfor.addAgentContract", {
+                isLogin: true,
+                title: 'Agent Contract Entry',
+                url: "/addAgentContract/:FROMPAGE/:AGENT_ID",
+                templateUrl: "Modules/Views/06SupplierManagement/addAgentDefination.html",
+                controller: "addAgentDefinationCtrl"
+            })
+            .state("qfor.addVesselVoyage", {
+                isLogin: true,
+                title: 'Vessel Voyage',
+                url: "/addVesselVoyage/:VESSEL_VOYAGE_TBL_PK",
+                templateUrl: "Modules/Views/03Setup/addVesselVoyage.html",
+                controller: "addVesselVoyageCtrl"
+            })
+            .state("qfor.lstWriteOffSetup", {
+                isLogin: true,
+                title: 'Write Off Listing',
+                url: "/lstWriteOffSetup",
+                templateUrl: "Modules/Views/03Setup/lstWriteOffSetup.html",
+                controller: "lstWriteOffSetupCtrl"
+            })
+            .state("qfor.addWriteOffSetup", {
+                isLogin: true,
+                title: 'Write Off Entry',
+                url: "/addWriteOffSetup/:USER_ID/:WRITE_OFF_LOC_FK/:WRITE_OFF_USER_FK",
+                templateUrl: "Modules/Views/03Setup/addWriteOffSetup.html",
+                controller: "addWriteOffSetupCtrl"
+            })
+            .state("qfor.lstReportScheduler", {
+                isLogin: true,
+                title: 'Report Schedule Listing',
+                url: "/lstReportScheduler",
+                templateUrl: "Modules/Views/03Setup/lstReportScheduler.html",
+                controller: "lstReportSchedulerCtrl"
+            })
+            .state("qfor.addReportScheduler", {
+                isLogin: true,
+                title: 'Report Schedule Entry',
+                url: "/addReportScheduler/:SCHPK/:CUSTOMER_PK",
+                templateUrl: "Modules/Views/03Setup/addReportScheduler.html",
+                controller: "addReportSchedulerCtrl"
+            })
+            .state("qfor.lstSupplierRegistration", {
+                isLogin: true,
+                title: 'Supplier',
+                url: "/lstSupplierRegistration",
+                templateUrl: "Modules/Views/06SupplierManagement/lstSupplierRegistration.html",
+                controller: "lstSupplierRegistrationCtrl"
+            })
+            .state("qfor.AddSupplierRegistration", {
+                isLogin: true,
+                title: 'Add Supplier',
+                url: "/AddSupplierRegistration/:VENDOR_MST_PK",
+                templateUrl: "Modules/Views/06SupplierManagement/AddSupplierRegistration.html",
+                controller: "AddSupplierRegistrationCtrl"
+            })
+            .state("qfor.lstSLDefinition", {
+                isLogin: true,
+                title: 'Shipping Line Definition',
+                url: "/lstSLDefinition",
+                templateUrl: "Modules/Views/06SupplierManagement/lstSLDefinition.html",
+                controller: "lstSLDefinitionCtrl"
+            })
+            .state("qfor.addSLDefinationEntry", {
+                isLogin: true,
+                title: 'Shipping Line Details',
+                url: "/addSLDefinationEntry",
+                templateUrl: "Modules/Views/06SupplierManagement/addSLDefinationEntry.html",
+                controller: "addSLDefinationEntryCtrl"
+            })
+            .state("qfor.lstContractListing", {
+                isLogin: true,
+                title: 'SL Contract Listing ',
+                url: "/lstContractListing",
+                templateUrl: "Modules/Views/06SupplierManagement/lstContractListing.html",
+                controller: "lstContractListingCtrl"
+            })
+            .state("qfor.addSLContractEntry", {
+                isLogin: true,
+                title: 'SL Contract Entry ',
+                url: "/addSLContractEntry",
+                templateUrl: "Modules/Views/06SupplierManagement/addSLContractEntry.html",
+                controller: "addSLContractEntryCtrl"
+            })
+            .state("qfor.lstSLContractApproval", {
+                isLogin: true,
+                title: 'Shipping Line Contract Approval - FCL',
+                url: "/lstSLContractApproval",
+                templateUrl: "Modules/Views/06SupplierManagement/lstSLContractApproval.html",
+                controller: "lstSLContractApprovalCtrl"
+            })
+            .state("qfor.lstSLRFQ", {
+                isLogin: true,
+                title: 'Shipping Line RFQ Listing',
+                url: "/lstSLRFQ",
+                templateUrl: "Modules/Views/06SupplierManagement/lstSLRFQ.html",
+                controller: "lstSLRFQCtrl"
+            })
+            .state("qfor.addRFQEntry", {
+                isLogin: true,
+                title: 'Shipping Line Request for Quotation Entry',
+                url: "/addRFQEntry",
+                templateUrl: "Modules/Views/06SupplierManagement/addRFQEntry.html",
+                controller: "addRFQEntryCtrl"
+            })
+            .state("qfor.lstAirlineDefinition", {
+                isLogin: true,
+                title: 'Airline Definition',
+                url: "/lstAirlineDefinition",
+                templateUrl: "Modules/Views/06SupplierManagement/lstAirlineDefinition.html",
+                controller: "lstAirlineDefinitionCtrl"
+            })
+            .state("qfor.addAirlineDefinitionEntry", {
+                isLogin: true,
+                title: 'Airline Details',
+                url: "/addAirlineDefinitionEntry",
+                templateUrl: "Modules/Views/06SupplierManagement/addAirlineDefinitionEntry.html",
+                controller: "addAirlineDefinitionEntryCtrl"
+            })
+            .state("qfor.lstAirlineContract", {
+                isLogin: true,
+                title: 'Airline Contract Listing',
+                url: "/lstAirlineContract",
+                templateUrl: "Modules/Views/06SupplierManagement/lstAirlineContract.html",
+                controller: "lstAirlineContractCtrl"
+            })
+            .state("qfor.addAirlineContractEntry", {
+                isLogin: true,
+                title: 'AirLine Contract Entry',
+                url: "/addAirlineContractEntry",
+                templateUrl: "Modules/Views/06SupplierManagement/addAirlineContractEntry.html",
+                controller: "addAirlineContractEntryCtrl"
+            })
+            .state("qfor.lstAirlineContractApproval", {
+                isLogin: true,
+                title: 'Airline Contract Approval',
+                url: "/lstAirlineContractApproval",
+                templateUrl: "Modules/Views/06SupplierManagement/lstAirlineContractApproval.html",
+                controller: "lstAirlineContractApprovalCtrl"
+            })
+            .state("qfor.lstAirlineRFQListing", {
+                isLogin: true,
+                title: 'Airline RFQ Listing',
+                url: "/lstAirlineRFQListing",
+                templateUrl: "Modules/Views/06SupplierManagement/lstAirlineRFQListing.html",
+                controller: "lstAirlineRFQListingCtrl"
+            })
+            .state("qfor.addAirlineRFQEntry", {
+                isLogin: true,
+                title: 'Airline RFQ Entry',
+                url: "/addAirlineRFQEntry",
+                templateUrl: "Modules/Views/06SupplierManagement/addAirlineRFQEntry.html",
+                controller: "addAirlineRFQEntryCtrl"
+            })
+            .state("qfor.lstWarehouseContract", {
+                isLogin: true,
+                title: 'Warehouse Contract Listing',
+                url: "/lstWarehouseContract",
+                templateUrl: "Modules/Views/06SupplierManagement/lstWarehouseContract.html",
+                controller: "lstWarehouseContractCtrl"
+            })
+            .state("qfor.addWarehouseContract", {
+                isLogin: true,
+                title: 'Warehouse Contract - Air',
+                url: "/addWarehouseContract",
+                templateUrl: "Modules/Views/06SupplierManagement/addWarehouseContract.html",
+                controller: "addWarehouseContractCtrl"
+            })
+            .state("qfor.mstAirWayBill", {
+                isLogin: true,
+                title: 'Airway Bill Management',
+                url: "/mstAirWayBill",
+                templateUrl: "Modules/Views/06SupplierManagement/mstAirWayBill.html",
+                controller: "mstAirWayBillCtrl"
+            })
+            .state("qfor.lstTransporterContract", {
+                isLogin: true,
+                title: 'Transporter Contract',
+                url: "/lstTransporterContract",
+                templateUrl: "Modules/Views/06SupplierManagement/lstTransporterContract.html",
+                controller: "lstTransporterContractCtrl"
+            })
+            .state("qfor.addTransporterContract", {
+                isLogin: true,
+                title: 'Transporter Contract - LCL   ',
+                url: "/addTransporterContract",
+                templateUrl: "Modules/Views/06SupplierManagement/addTransporterContract.html",
+                controller: "addTransporterContractCtrl"
+            })
+            .state("qfor.lstTransporterContractApproval", {
+                isLogin: true,
+                title: 'Transporter Contract Approval (Sea)',
+                url: "/lstTransporterContractApproval",
+                templateUrl: "Modules/Views/06SupplierManagement/lstTransporterContractApproval.html",
+                controller: "lstTransporterContractApprovalCtrl"
+            })
+            .state("qfor.AddZone", {
+                isLogin: true,
+                title: 'Add Zone',
+                url: "/AddZone/:VENDOR_MST_PK",
+                templateUrl: "Modules/Views/06SupplierManagement/AddZone.html",
+                controller: "AddZoneCtrl"
+            })
+            .state("qfor.addCustomerDetals", {
+                isLogin: true,
+                title: 'Customer Details',
+                url: "/addCustomerDetals/:CUSTOMER_PK/:CUSTOMER_ID",
+                templateUrl: "Modules/Views/04SalesMarketing/addCustomerDetals.html",
+                controller: "addCustomerDetailsCtrl"
+            })
+            .state("qfor.lstSalesplan", {
+                isLogin: true,
+                title: 'Sales Plan',
+                url: "/lstSalesplan",
+                templateUrl: "Modules/Views/04SalesMarketing/lstSalesplan.html",
+                controller: "lstSalesplanCtrl"
+            })
+            .state("qfor.rptSalesplanReport", {
+                isLogin: true,
+                title: 'Sales Plan Report',
+                url: "/rptSalesplanReport",
+                templateUrl: "Modules/Views/04SalesMarketing/rptSalesplanReport.html",
+                controller: "rptSalesplanReportCtrl"
+            })
+            .state("qfor.addSalesCallEntry", {
+                isLogin: true,
+                title: 'Sales Call Entry',
+                url: "/addSalesCallEntry",
+                templateUrl: "Modules/Views/04SalesMarketing/addSalesCallEntry.html",
+                controller: "addSalesCallEntryCtrl"
+            })
+            .state("qfor.addSalesLeadEntry", {
+                isLogin: true,
+                title: 'Sales Lead',
+                url: "/addSalesLeadEntry",
+                templateUrl: "Modules/Views/04SalesMarketing/addSalesLeadEntry.html",
+                controller: "addSalesLeadEntryCtrl"
+            })
+            .state("qfor.mstProfitPerCustomer", {
+                isLogin: true,
+                title: 'Profit Per Customer / SalesPerson',
+                url: "/mstProfitPerCustomer",
+                templateUrl: "Modules/Views/04SalesMarketing/mstProfitPerCustomer.html",
+                controller: "mstProfitPerCustomerCtrl"
+            })
+            .state("qfor.lstSalesCall", {
+                isLogin: true,
+                title: 'Sales Call',
+                url: "/lstSalesCall",
+                templateUrl: "Modules/Views/04SalesMarketing/lstSalesCall.html",
+                controller: "lstSalesCallCtrl"
+            })
+            .state("qfor.lstCustomerMapping", {
+                isLogin: true,
+                title: 'Customer Mapping',
+                url: "/lstCustomerMapping",
+                templateUrl: "Modules/Views/05CustomerService/lstCustomerMapping.html",
+                controller: "lstCustomerMappingCtrl"
+            })
+            .state("qfor.lstSeaEnquiry", {
+                isLogin: true,
+                title: 'Enquiry Sea',
+                url: "/lstSeaEnquiry",
+                templateUrl: "Modules/Views/05CustomerService/lstSeaEnquiry.html",
+                controller: "lstSeaEnquiryCtrl"
+            })
+            .state("qfor.lstAirEnquiry", {
+                isLogin: true,
+                title: 'Enquiry Air',
+                url: "/lstAirEnquiry",
+                templateUrl: "Modules/Views/05CustomerService/lstAirEnquiry.html",
+                controller: "lstAirEnquiryCtrl"
+            })
+            .state("qfor.lstCallRegistration", {
+                isLogin: true,
+                title: 'Call Registration',
+                url: "/lstCallRegistration",
+                templateUrl: "Modules/Views/05CustomerService/lstCallRegistration.html",
+                controller: "lstCallRegistrationCtrl"
+            })
+            .state("qfor.addCallRegistration", {
+                isLogin: true,
+                title: 'Call Registration',
+                url: "/addCallRegistration",
+                templateUrl: "Modules/Views/05CustomerService/addCallRegistration.html",
+                controller: "addCallRegistrationCtrl"
+            })
+            .state("qfor.lstArrivalNotice", {
+                isLogin: true,
+                title: 'Arrival Notice',
+                url: "/lstArrivalNotice",
+                templateUrl: "Modules/Views/05CustomerService/lstArrivalNotice.html",
+                controller: "lstArrivalNoticeCtrl"
+            })
+            .state("qfor.lstExpCertificate", {
+                isLogin: true,
+                title: 'Certificate Of Shipment',
+                url: "/lstExpCertificate",
+                templateUrl: "Modules/Views/05CustomerService/lstExpCertificate.html",
+                controller: "lstExpCertificateCtrl"
+            })
+            .state("qfor.lstWorkflow", {
+                isLogin: true,
+                title: 'Work flow',
+                url: "/lstWorkflow",
+                templateUrl: "Modules/Views/05CustomerService/lstWorkflow.html",
+                controller: "lstWorkflowCtrl"
+            })
+            .state("qfor.rptAirLineTariffReport", {
+                isLogin: true,
+                title: 'AirLine Tariff Report',
+                url: "/rptAirLineTariffReport",
+                templateUrl: "Modules/Views/05CustomerService/rptAirLineTariffReport.html",
+                controller: "rptAirLineTariffReportCtrl"
+            })
+            .state("qfor.lstTrackNTrace", {
+                isLogin: true,
+                title: 'Track and Trace',
+                url: "/lstTrackNTrace",
+                templateUrl: "Modules/Views/05CustomerService/lstTrackNTrace.html",
+                controller: "lstTrackNTraceCtrl"
+            })
+            .state("qfor.lstCargoTracking", {
+                isLogin: true,
+                title: 'Cargo Tracking',
+                url: "/lstCargoTracking",
+                templateUrl: "Modules/Views/05CustomerService/lstCargoTracking.html",
+                controller: "lstCargoTrackingCtrl"
+            })
+            .state("qfor.lstBookingRollOver", {
+                isLogin: true,
+                title: 'Booking Roll Over',
+                url: "/lstBookingRollOver",
+                templateUrl: "Modules/Views/08OrderManagement/lstBookingRollOver.html",
+                controller: "lstBookingRollOverCtrl"
+            })
+            .state("qfor.addBookingRollOver", {
+                isLogin: true,
+                title: 'Booking Roll Over Entry',
+                url: "/addBookingRollOver/:BOOKING_MST_PK/:FROM_FLAG",
+                templateUrl: "Modules/Views/08OrderManagement/addBookingRollOver.html",
+                controller: "addBookingRollOverCtrl"
+            })
+            .state("qfor.lstSeafreightTariff", {
+                isLogin: true,
+                title: 'Seafreight Tariff Listing - FCL',
+                url: "/lstSeafreightTariff",
+                templateUrl: "Modules/Views/07RatingTariff/lstSeafreightTariff.html",
+                controller: "lstSeafreightTariffCtrl"
+            })
+            .state("qfor.addSeaFreightTariff", {
+                isLogin: true,
+                title: 'Seafreight Tariff Entry - FCL',
+                url: "/addSeaFreightTariff",
+                templateUrl: "Modules/Views/07RatingTariff/addSeaFreightTariff.html",
+                controller: "addSeaFreightTariffCtrl"
+            })
+            .state("qfor.lstTHCRate", {
+                isLogin: true,
+                title: 'THC Rate',
+                url: "/lstTHCRate",
+                templateUrl: "Modules/Views/07RatingTariff/lstTHCRate.html",
+                controller: "lstTHCRateCtrl"
+            })
+            .state("qfor.addTHCRate", {
+                isLogin: true,
+                title: 'THC Rate Entry',
+                url: "/addTHCRate",
+                templateUrl: "Modules/Views/07RatingTariff/addTHCRate.html",
+                controller: "addTHCRateCtrl"
+            })
+            .state("qfor.lstLocalCharge", {
+                isLogin: true,
+                title: 'Local Charge',
+                url: "/lstLocalCharge",
+                templateUrl: "Modules/Views/07RatingTariff/lstLocalCharge.html",
+                controller: "lstLocalChargeCtrl"
+            })
+            .state("qfor.lstSLSpotRate", {
+                isLogin: true,
+                title: 'Shipping Line Spot Rate Listing - FCL',
+                url: "/lstSLSpotRate",
+                templateUrl: "Modules/Views/07RatingTariff/lstSLSpotRate.html",
+                controller: "lstSLSpotRateCtrl"
+            })
+             .state("qfor.addSLSpotRate", {
+                 isLogin: true,
+                 title: 'Shipping Line Spot Rate Entry - FCL ',
+                 url: "/addSLSpotRate",
+                 templateUrl: "Modules/Views/07RatingTariff/addSLSpotRate.html",
+                 controller: "addSLSpotRateCtrl"
+             })
+             .state("qfor.lstSLSpotRateApproval", {
+                 isLogin: true,
+                 title: 'Shipping Line Spot Rate Approval',
+                 url: "/lstSLSpotRateApproval",
+                 templateUrl: "Modules/Views/07RatingTariff/lstSLSpotRateApproval.html",
+                 controller: "lstSLSpotRateApprovalCtrl"
+             })
+             .state("qfor.lstRentDemurrage", {
+                 isLogin: true,
+                 title: 'Rent and Demurrage',
+                 url: "/lstRentDemurrage",
+                 templateUrl: "Modules/Views/07RatingTariff/lstRentDemurrage.html",
+                 controller: "lstRentDemurrageCtrl"
+             })
+            .state("qfor.lstAirlineTariff", {
+                isLogin: true,
+                title: 'Airline Tariff',
+                url: "/AirlineTariff",
+                templateUrl: "Modules/Views/07RatingTariff/AirlineTariff.html",
+                controller: "AirlineTariff"
+            })
+             .state("qfor.mstAirlineTariffApproval", {
+                 isLogin: true,
+                 title: 'Airline Tariff Listing',
+                 url: "/mstAirlineTariffApproval",
+                 templateUrl: "Modules/Views/07RatingTariff/mstAirlineTariffApproval.html",
+                 controller: "mstAirlineTariffApprovalCtrl"
+             })
+             .state("qfor.lstAirlineTariffUpload", {
+                 isLogin: true,
+                 title: 'Airline Tariff Data Upload',
+                 url: "/lstAirlineTariffUpload",
+                 templateUrl: "Modules/Views/07RatingTariff/lstAirlineTariffUpload.html",
+                 controller: "lstAirlineTariffUploadCtrl"
+             })
+            .state("qfor.lstQuotation", {
+                isLogin: true,
+                title: 'Quotation Listing',
+                url: "/lstQuotation/:BIZ_TYPE/:PROCESS_TYPE/:FROM_PAGE",
+                templateUrl: "Modules/Views/07RatingTariff/lstQuotation.html",
+                controller: "lstQuotationCtrl"
+            })
+            //.state("qfor.lstImpSeaQuotation", {
+            //    isLogin: true,
+            //    title: 'Sea Import Quotation',
+            //    url: "/lstImpSeaQuotation/:BIZ_TYPE/:PROCESSTYPE",
+            //    templateUrl: "Modules/Views/07RatingTariff/lstQuotation.html",
+            //    controller: "lstQuotationCtrl"
+            //})
+            .state("qfor.addQuotation", {
+                isLogin: true,
+                title: 'Quotation Entry',
+                url: "/addQuotation/:BIZ_TYPE/:PROCESS_TYPE/:QUOTATION_MST_PK/:FROM_PAGE/:CARGO_TYPE",
+                templateUrl: "Modules/Views/07RatingTariff/addQuotation.html",
+                controller: "addQuotationCtrl"
+            })
+            //.state("qfor.lstAirQuotation", {
+            //    isLogin: true,
+            //    title: 'Air Quotation',
+            //    url: "/lstAirQuotation/:BIZ_TYPE/:PROCESSTYPE",
+            //    templateUrl: "Modules/Views/07RatingTariff/lstQuotation.html",
+            //    controller: "lstQuotationCtrl"
+            //})
+            //.state("qfor.lstImpAirQuotation", {
+            //    isLogin: true,
+            //    title: 'Air Import Quotation',
+            //    url: "/lstImpAirQuotation/:BIZ_TYPE/:PROCESSTYPE",
+            //    templateUrl: "Modules/Views/07RatingTariff/lstQuotation.html",
+            //    controller: "lstQuotationCtrl"
+            //})
+            //.state("qfor.addAirQuotation", {
+            //    isLogin: true,
+            //    title: 'Add Air Quotation',
+            //    url: "/addAirQuotation/:BIZ_TYPE/:PROCESSTYPE",
+            //    templateUrl: "Modules/Views/07RatingTariff/addQuotation.html",
+            //    controller: "addQuotationCtrl"
+            //})
+            .state("qfor.lstJobCard", {
+                isLogin: true,
+                title: 'Job Card Search List',
+                url: "/lstJobCard/:BIZ_TYPE/:PROCESSTYPE",
+                templateUrl: "Modules/Views/09ExportDocumentation/lstJobCard.html",
+                controller: "lstJobCardSearchCtrl"
+            })
+            .state("qfor.addJobCard", {
+                isLogin: true,
+                title: 'Add Job Card',
+                url: "/addJobCard/:JCPK/:BIZ_TYPE/:PROCESS_TYPE/:CARGO_TYPE/:FROM_PAGE",
+                templateUrl: "Modules/Views/09ExportDocumentation/jobCardSearchEntry.html",
+                controller: "jobCardSearchEntryCtrl"
+            })
+            .state("qfor.lstNominationSea", {
+                isLogin: true,
+                title: 'Nomination Sea',
+                url: "/lstNominationSea",
+                templateUrl: "Modules/Views/08OrderManagement/lstNominationSea.html",
+                controller: "lstNominationSeaCtrl"
+            }).state("qfor.lstBookingSea", {
+                isLogin: true,
+                title: 'Booking Sea',
+                url: "/lstBooking/:BIZ_TYPE/:PROCESS_TYPE",
+                templateUrl: "Modules/Views/08OrderManagement/lstBookingSea.html",
+                controller: "lstBookingSeaCtrl"
+            }).state("qfor.addNominationSea", {
+                isLogin: true,
+                title: 'Nomination Sea Entry ',
+                url: "/addNominationSea",
+                templateUrl: "Modules/Views/08OrderManagement/addNominationSea.html",
+                controller: "addNominationSeaCtrl"
+            }).state("qfor.addBookingSea", {
+                isLogin: true,
+                title: 'Booking Sea Entry',
+                url: "/addBooking/:BOOKING_MST_PK/:CARGO_TYPE_PK/:BUSINESS_TYPE/:PROCESS_TYPE/:BOOKING_REF_NO/:FROM_PAGE",
+                templateUrl: "Modules/Views/08OrderManagement/addNominationSea.html",
+                controller: "addBookingSeaCtrl"
+            }).state("qfor.lstProvisionalBooking", {
+                isLogin: true,
+                title: 'Provisional Booking',
+                url: "/lstProvisionalBooking",
+                templateUrl: "Modules/Views/08OrderManagement/lstProvisionalBooking.html",
+                controller: "lstProvisionalBookingCtrl"
+            }).state("qfor.lstHbl", {
+                isLogin: true,
+                title: 'HBL',
+                url: "/lstHbl/:BIZ_TYPE",
+
+                templateUrl: "Modules/Views/09ExportDocumentation/lstHbl.html",
+                controller: "lstHblCtrl"
+            }).state("qfor.hblEntry", {
+                isLogin: true,
+                title: 'HBL Entry',
+                url: "/hblEntry/:HBL_EXP_TBL_PK/:STATUS_PK/:CARGO_TYPE/:FROM_PAGE",
+                templateUrl: "Modules/Views/09ExportDocumentation/hblEntry.html",
+                controller: "entryHblCtrl"
+            }).state("qfor.addHblEntryBBC", {
+                isLogin: true,
+                title: 'HBL Entry-BBC',
+                url: "/addHblEntryBBC/:HBL_EXP_TBL_PK",
+                templateUrl: "Modules/Views/09ExportDocumentation/addHblEntryBBC.html",
+                controller: "addHblEntryBbcCtrl"
+            }).state("qfor.lstMbl", {
+                isLogin: true,
+                title: 'MBL Listing',
+                url: "/lstMbl/:CARGOPK",
+                templateUrl: "Modules/Views/09ExportDocumentation/lstMbl.html",
+                controller: "lstMblCtrl"
+            }).state("qfor.addMblEntry", {
+                isLogin: true,
+                title: 'MBL Entry',
+                url: "/addMblEntry/:MBL_PK/:CARGO_TYPE/:FROM_PAGE",
+                templateUrl: "Modules/Views/09ExportDocumentation/addMblEntry.html",
+                controller: "addMblEntryCtrl"
+            }).state("qfor.lstPendingInvoiceCreation", {
+                isLogin: true,
+                title: 'List Of JC Pending For Invoice Generation',
+                url: "/lstPendingInvoiceCreation",
+                templateUrl: "Modules/Views/09ExportDocumentation/lstPendingInvoiceCreation.html",
+                controller: "lstPendingInvoiceCreationCtrl"
+            }).state("qfor.lstQuickEntry", {
+                isLogin: true,
+                title: 'Quick Entry (Sea) Listing',
+                url: "/lstQuickEntry/:BIZ_TYPE/:PROCESS_TYPE",
+                templateUrl: "Modules/Views/10ImportDocumentation/lstQuickEntry.html",
+                controller: "lstQuickEntryCtrl"
+            }).state("qfor.addQuickSeaEntry", {
+                isLogin: true,
+                title: 'Quick Entry',
+                url: "/addQuickSeaEntry/:CARGO_TYPE/:MASTER_JC_PK/:JOBCARD_PK/:PROCESS_TYPE/:BIZ_TYPE",
+                templateUrl: "Modules/Views/10ImportDocumentation/addQuickSeaEntry.html",
+                controller: "addQuickSeaEntryCtrl"
+            }).state("qfor.mstDeconsolidation", {
+                isLogin: true,
+                title: 'Deconsolidation',
+                url: "/mstDeconsolidation/:PROCESS_TYPE",
+                templateUrl: "Modules/Views/10ImportDocumentation/mstDeconsolidation.html",
+                controller: "mstDeconsolidationCtrl"
+            }).state("qfor.lstCargoArrivalNotice", {
+                isLogin: true,
+                title: 'Cargo Arrival Notice Sea',
+                url: "/lstCargoArrivalNotice/:BIZ_TYPE/:PROCESS_TYPE",
+                templateUrl: "Modules/Views/10ImportDocumentation/lstCargoArrivalNotice.html",
+                controller: "lstCargoArrivalNoticeCtrl"
+            }).state("qfor.addCargoArrivalNotice", {
+                isLogin: true,
+                title: 'Cargo Arrival Notice (Sea)',
+                url: "/addCargoArrivalNotice/:FLAG/:JOB_PK/:JOBREFNO/:BUSINESS_TYPE/:CAN_PK",
+                templateUrl: "Modules/Views/10ImportDocumentation/addCargoArrivalNotice.html",
+                controller: "addCargoArrivalNoticeCtrl"
+            }).state("qfor.lstDeliveryOrder", {
+                isLogin: true,
+                title: 'Delivery Order',
+                url: "/lstDeliveryOrder/:PROCESSTYPE",
+                templateUrl: "Modules/Views/10ImportDocumentation/lstDeliveryOrder.html",
+                controller: "lstDeliveryOrderCtrl"
+            }).state("qfor.addDeliveryOrder", {
+                isLogin: true,
+                title: 'Delivery Order',
+                url: "/addDeliveryOrder/:DO_PK/:JOB_PK/:BIZ_TYPE/:CARGO_TYPE_PK",
+                templateUrl: "Modules/Views/10ImportDocumentation/addDeliveryOrder.html",
+                controller: "addDeliveryOrderCtrl"
+            }).state("qfor.lstJobcardsPending", {
+                isLogin: true,
+                title: 'List Of Jobcard Pending For DO',
+                url: "/lstJobcardsPending/:PROCESSTYPE",
+                templateUrl: "Modules/Views/10ImportDocumentation/lstJobcardsPending.html",
+                controller: "lstJobcardsPendingCtrl"
+            }).state("qfor.lstInvoice", {
+                isLogin: true,
+                title: 'Invoice Generation',
+                url: "/lstInvoice",
+                templateUrl: "Modules/Views/11Receivables/lstInvoice.html",
+                controller: "lstInvoiceCtrl"
+            }).state("qfor.addInvoiceDetails", {
+                isLogin: true,
+                title: 'Invoice',
+                url: "/addInvoiceDetails/:BIZ_TYPE/:PROCESS_TYPE/:CUSTOMER_PK/:CUSTOMER_ID/:CUSTOMER_NAME/:INVOICE_PK/:SUPPLIER_PK/:MODE/:APPROVE_FLAG/:CARGO_TYPE/:JOB_PK_LIST/:CBJC_PK_LIST/:TPT_PK_LIST/:DEM_PK_LIST",
+                templateUrl: "Modules/Views/11Receivables/addInvoiceDetails.html",
+                controller: "addInvoiceDetailsCtrl"
+            }).state("qfor.mstApproval", {
+                isLogin: true,
+                title: 'Invoice Approval',
+                url: "/mstApproval",
+                templateUrl: "Modules/Views/11Receivables/mstApproval.html",
+                controller: "mstApprovalCtrl"
+            }).state("qfor.lstCollections", {
+                isLogin: true,
+                title: 'Collections List',
+                url: "/lstCollections/:PROCESSTYPE",
+                templateUrl: "Modules/Views/11Receivables/lstCollections.html",
+                controller: "lstCollectionsCtrl"
+            }).state("qfor.addCollectionsEntry", {
+                isLogin: true,
+                title: 'Collection Entry',
+                url: "/addCollectionsEntry/:CUSTOMER_PK/:MODE/:BUSINESS_TYPE/:PROCESS_TYPE/:JOB_TYPE/:INVOICE_PK/:BARCODE/:CUSTOMER",
+                templateUrl: "Modules/Views/11Receivables/addCollectionsEntry.html",
+                controller: "addCollectionsEntryCtrl"
+            }).state("qfor.lstDayCollection", {
+                isLogin: true,
+                title: 'Days Collection',
+                url: "/lstDayCollection",
+                templateUrl: "Modules/Views/11Receivables/lstDayCollection.html",
+                controller: "lstDayCollectionCtrl"
+            }).state("qfor.lstInvoicePending", {
+                isLogin: true,
+                title: 'List of Invoice Pending for the Collection',
+                url: "/lstInvoicePending",
+                templateUrl: "Modules/Views/11Receivables/lstInvoicePending.html",
+                controller: "lstInvoicePendingCtrl"
+            }).state("qfor.lstPayments", {
+                isLogin: true,
+                title: 'Payments',
+                url: "/lstPayments/:Base",
+                templateUrl: "Modules/Views/12Payables/lstPayments.html",
+                controller: "lstPaymentsCtrl"
+            }).state("qfor.lstPaymentsApprove", {
+                isLogin: true,
+                title: 'Payments Approval',
+                url: "/lstPaymentsApprove/:Base",
+                templateUrl: "Modules/Views/12Payables/lstPayments.html",
+                controller: "lstPaymentsCtrl"
+            }).state("qfor.addPaymentsEntry", {
+                isLogin: true,
+                title: 'Payments Entry',
+                url: "/addPaymentsEntry/:PAYMENT_PK/:PAY_STATUS/:BASE",
+                templateUrl: "Modules/Views/12Payables/addPaymentsEntry.html",
+                controller: "addPaymentsEntryCtrl"
+            }).state("qfor.lstVoucher", {
+                isLogin: true,
+                title: 'Voucher Entry',
+                url: "/lstVoucher/:Invoice",
+                templateUrl: "Modules/Views/12Payables/lstVoucher.html",
+                controller: "lstVoucherCtrl"
+            }).state("qfor.lstVoucherApprove", {
+                isLogin: true,
+                title: 'Voucher Entry Approval',
+                url: "/lstVoucherApprove/:Invoice",
+                templateUrl: "Modules/Views/12Payables/lstVoucher.html",
+                controller: "lstVoucherCtrl"
+            }).state("qfor.addVoucherRequestEntry", {
+                isLogin: true,
+                title: 'Voucher Entry',
+                url: "/addVoucherRequestEntry/",
+                templateUrl: "Modules/Views/12Payables/addVoucherRequestEntry.html",
+                controller: "addVoucherRequestEntryCtrl"
+            }).state("qfor.rptDailyBooking", {
+                isLogin: true,
+                title: 'Daily Booking Report',
+                url: "/rptDailyBooking/",
+                templateUrl: "Modules/Views/18Reports/rptDailyBooking.html",
+                controller: "rptDailyBookingCtrl"
+            }).state("qfor.mstVesselVoyageBooking", {
+                isLogin: true,
+                title: 'Vessel Voyage Wise Booking',
+                url: "/mstVesselVoyageBooking/",
+                templateUrl: "Modules/Views/18Reports/mstVesselVoyageBooking.html",
+                controller: "mstVesselVoyageBookingCtrl"
+            }).state("qfor.mstIncidentReport", {
+                isLogin: true,
+                title: 'Incident Report',
+                url: "/mstIncidentReport/",
+                templateUrl: "Modules/Views/21QualityAndSafety/mstIncidentReport.html",
+                controller: "mstIncidentReportCtrl"
+            }).state("qfor.mstSafetyObservationReport", {
+                isLogin: true,
+                title: 'Safety Observation',
+                url: "/mstSafetyObservationReport/",
+                templateUrl: "Modules/Views/21QualityAndSafety/mstSafetyObservationReport.html",
+                controller: "mstSafetyObservationReportCtrl"
+            })
+
+        $urlRouterProvider.otherwise("/login")
+    }])
+    .run(['$rootScope', '$state', 'AuthenticationService', function ($rootScope, $state, AuthenticationService) {
+        $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
+            if (toState.name.indexOf('qfor.') > -1 && !AuthenticationService.getTokenInfo()) {
+                // User isn’t authenticated
+                $rootScope.spinner.active = false;
+                $state.transitionTo("login");
+
+                event.preventDefault();
+            }
+        });
+    }]);
