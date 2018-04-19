@@ -1,0 +1,154 @@
+face book and google integration
+
+<script type="text/javascript">
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/all.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    // sto for face book
+    </script>
+    <script type="text/javascript">
+        (function(){
+                var p = document.createElement('script');
+                p.type ='text/javascript';
+                p.async = true;
+                p.src='https://apis.google.com/js/api.js'
+                var s= document.getElementsByTagName('script')[0];
+                s.parentnode.insertBefore(p,s);
+            })();
+            
+            https://apis.google.com/js/api.js
+            
+            $scope.facebookLogin = function () {
+
+        FB.login(function (response) {
+            console.log("response", response);
+            if (response.authResponse) {
+                FB.api('/me', { locale: 'en_US', fields: 'id,first_name,last_name,email,link,gender,locale,picture' }, function (response) {
+                    console.log("response>>>>", response);
+                    var data = {
+                        'popStatus': false,
+                        'userId': response.id
+                       
+                    };
+                    console.log("dddddd", data);
+                    CDGService.socialLogin(data, function (res) {
+                        console.log("facebook responseres", res.data);
+                        if (res.data.Status == 'Success' && res.data.loginInfo.popStatus) {
+
+
+                            var modalInstance = $modal.open({
+                                templateUrl: 'root/views/model/registerpop.html',
+                                controller: registerpop,
+                                resolve: {
+                                    socialdata: function () {
+                                        return {
+                                            userId: response.id
+                                            
+                                        };
+                                    }
+
+                                }
+
+                            });
+
+
+
+                        } else if (res.data.Status == 'Failure') {
+                            toaster.pop("error", res.data.message);
+                            $state.go('login');
+                        } else if (!res.data.loginInfo.popStatus) {
+                            sessionStorage.setItem('names', JSON.stringify(res.data));
+                            toaster.pop("success", res.data.message);
+                            $state.go('userDashboard');
+
+                        }
+
+                    });
+
+
+                })
+
+            } else {
+                //console.log("errorrrr");
+            }
+
+        })
+
+
+    }
+$scope.onGooleLogin = function () {
+
+        gapi.auth2.authorize({
+            client_id: '1080054110300-i06aqh5ol5g37kvflldu4iboe2hv4ka8.apps.googleusercontent.com',
+            scope: 'profile email',
+            response_type: 'id_token permission'
+        }, function (response) {
+            console.log("response", response);
+            if (response.error) {
+                // An error happened!
+                return;
+            }
+            // The user authorized the application for the scopes requested.
+            var accessToken = response.access_token;
+            var idToken = response.id_token;
+            gapi.client.load('plus', 'v1', function () {
+                var request = gapi.client.plus.people.get({
+                    'userId': 'me'
+                });
+                request.execute(function (resp) {
+                    console.log("restttttt", resp);
+
+                    var data = {
+                        'popStatus': false,
+                        'userId': resp.emails[0].value
+                    };
+                    console.log('gmail data', data);
+                    CDGService.socialLogin(data, function (res) {
+                        console.log("gmail facebook responseres", res);
+                        if (res.data.Status == 'Success' && res.data.loginInfo.popStatus) {
+
+
+                            var modalInstance = $modal.open({
+                                templateUrl: 'root/views/model/registerpop.html',
+                                controller: registerpop,
+                                resolve: {
+                                    socialdata: function () {
+                                        return {
+                                            userId: resp.emails[0].value,
+                                            emailId: resp.emails[0].value
+                                        };
+                                    }
+
+                                }
+
+                            });
+
+
+
+                        } else if (res.data.Status == 'Failure') {
+                            toaster.pop("error", res.data.message);
+                            $state.go('login');
+                        }
+                        else if (!res.data.loginInfo.popStatus) {
+                            sessionStorage.setItem('names', JSON.stringify(res.data));
+                            toaster.pop("success", res.data.message);
+                            $state.go('userDashboard');
+
+                        } 
+
+                    });
+                  
+
+
+                });
+            });
+        })
+
+
+    }
